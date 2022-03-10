@@ -1,10 +1,13 @@
-<%= simple_form_for @lesson do |f| %>
-  <%= f.input :title %>
-  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-  <%= f.input :topic_id, collection: @topics %>
-  <%= f.input :description %>
-  <%= f.input :start_time, label: 'Lesson`s start time' %>
-  <%= f.input :end_time, label: 'Lesson`s end time' %>
-  <%= f.button :submit %>
-<% end %>
+<div class='container'>
+  <h1>Create a new class</h1>
+  <%= simple_form_for @lesson do |f| %>
+    <%= f.input :title %>
+    <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :topic_id, collection: @topics %>
+    <%= f.input :description %>
+    <%= f.input :start_time, label: 'Lesson`s start time' %>
+    <%= f.input :end_time, label: 'Lesson`s end time' %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
