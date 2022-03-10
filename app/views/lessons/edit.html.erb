@@ -1,0 +1,9 @@
+<%= simple_form_for @lesson do |f| %>
+  <%= f.input :title %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :description %>
+  <%= f.input :start_time, label: 'Lesson`s start time' %>
+  <%= f.input :end_time, label: 'Lesson`s end time' %>
+  <%= f.button :submit %>
+<% end %>
