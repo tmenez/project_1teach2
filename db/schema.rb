@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_10_150702) do
+ActiveRecord::Schema.define(version: 2022_03_11_142956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follows", force: :cascade do |t|
+    t.integer "following_id", null: false
+    t.integer "follower_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+    t.index ["following_id", "follower_id"], name: "index_follows_on_following_id_and_follower_id", unique: true
+    t.index ["following_id"], name: "index_follows_on_following_id"
+  end
 
   create_table "lessons", force: :cascade do |t|
     t.string "title"
@@ -28,6 +38,20 @@ ActiveRecord::Schema.define(version: 2022_03_10_150702) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["topic_id"], name: "index_lessons_on_topic_id"
     t.index ["user_id"], name: "index_lessons_on_user_id"
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "user_id", null: false
+    t.bigint "lesson_id", null: false
+    t.text "notes"
+    t.boolean "completed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_meetings_on_lesson_id"
+    t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -52,4 +76,6 @@ ActiveRecord::Schema.define(version: 2022_03_10_150702) do
 
   add_foreign_key "lessons", "topics"
   add_foreign_key "lessons", "users"
+  add_foreign_key "meetings", "lessons"
+  add_foreign_key "meetings", "users"
 end
