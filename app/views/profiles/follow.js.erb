@@ -3,4 +3,4 @@ function renderUser(userHTML) {
   user.outerHTML = userHTML;
 }
 
-renderUser('<%= j render @user %>');
+renderUser('<%= j render "user", user: @user %>');
