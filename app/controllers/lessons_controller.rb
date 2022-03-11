@@ -6,6 +6,7 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     @meeting = Meeting.new
+    @wishlist_item = WishlistItem.new
   end
 
   def new

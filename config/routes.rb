@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard", as: :dashboard
   resources :lessons do
     resources :meetings, only: [ :create ]
+    resources :wishlist_items, only: [ :create ]
   end
 
+  resources :wishlist_items, only: [:destroy]
   resources :meetings, only: [ :edit, :update, :destroy ]
 end
