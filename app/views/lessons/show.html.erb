@@ -5,6 +5,12 @@
 
   <%= link_to "Update Lesson", edit_lesson_path(@lesson) %>
 
+  <% if current_user.wishlist_items.include?(@lesson)%>
+    <%= simple_form_for [ @lesson, @wishlist_item ] do |f| %>
+      <%= f.submit "Add to wishlist" %>
+    <% end%>
+  <% end %>
+
   <div>
     <% @lesson.meetings.each do |meeting|%>
       <div> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%>
