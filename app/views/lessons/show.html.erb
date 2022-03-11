@@ -1,8 +1,29 @@
 <div class='container'>
   <h2><%= @lesson.title %></h2>
   <p><%= @lesson.description %></p>
+  <p><%= @lesson.start_date %> | <%= @lesson.end_date %></p>
 
   <%= link_to "Update Lesson", edit_lesson_path(@lesson) %>
+
+  <div>
+    <% @lesson.meetings.each do |meeting|%>
+      <div> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%>
+      <%= link_to "Update", edit_meeting_path(meeting) %>
+      <%= link_to "Remove",
+                  meeting_path(meeting),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [ @lesson, @meeting ] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.submit "Create meeting" %>
+  <% end %>
+
   <%= link_to "Lessons Index", lessons_path %>
   <%= link_to "Remove",
                     lesson_path(@lesson),
