@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :wishlist_items
+  has_many :wishlist_lessons, through: :wishlist_items, source: 'lesson'
   has_many :lessons
   has_many :follower_relationships, foreign_key: :following_id, class_name: 'Follow'
   has_many :followers, through: :follower_relationships, source: :follower

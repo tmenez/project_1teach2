@@ -16,6 +16,7 @@ class MyProfilesController < ApplicationController
 
   def show
    @user = current_user
+   @wishlist = @user.wishlist_items
   end
 
   private
