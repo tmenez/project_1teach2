@@ -1,6 +1,10 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all
+    if params[:query].present?
+      @lessons = Lesson.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @lessons = Lesson.all
+    end
   end
 
   def show
