@@ -1,36 +1,67 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    
+<!-- Navbar -->
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+ <%# <form class="d-flex align-items-center w-100 form-search">
+        <div class="input-group">
+        <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+        </div>
+        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+      </form> %>
+
+<div class="navbar navbar-expand-sm navbar-lewagon navbar-dark bg-dark">
+
+<%#
+      <form class="d-flex align-items-center form-search">
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+        </div>
+        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+      </form> %>
+      <form class="form-inline form-search d-flex align-items-center">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+      </form>
+
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
+        <%# if user_signed_in? %>
           <li class="nav-item active">
-           <%= link_to "Sign out",  destroy_user_session_path, method: :delete %>
-          </li>
-          <li class="nav-item active">
-           <%= link_to "My Profile",  my_profiles_path %>
-          </li>
-          <li class="nav-item active">
-           <%= link_to "Profiles",  profiles_path %>
-          </li>
-          <li class="nav-item dropdown">
-            <% if current_user.photo.attached?%>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+            <%= link_to  do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
           </li>
-        <% else %>
-          <%= link_to "Sign in", new_user_session_path %>
-          <%= link_to "Sign up", new_user_registration_path %>
-        <% end %>
+
+          <li class="nav-item">
+            <%= link_to  do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to  do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to  do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+          </li>
+
+          <li class="nav-item dropdown">
+           <%= link_to do %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+
+          </li>
+        <%# else %>
+          <!--li class="nav-item"-->
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <!--/li-->
+        <%# end %>
       </ul>
-    </div>
     </div>
 
 </div>
