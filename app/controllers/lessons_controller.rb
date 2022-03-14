@@ -1,6 +1,10 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all
+    if params[:query].present?
+      @lessons = Lesson.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @lessons = Lesson.all
+    end
   end
 
   def show
@@ -39,7 +43,6 @@ class LessonsController < ApplicationController
     end
   end
 
-
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
@@ -49,6 +52,6 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:title, :start_date, :end_date, :description, :start_time, :end_time, :topic_id)
+    params.require(:lesson).permit(:title, :start_date, :end_date, :description, :start_time, :end_time, :topic_id, :photo)
   end
 end

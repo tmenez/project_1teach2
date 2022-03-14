@@ -15,8 +15,10 @@ class MyProfilesController < ApplicationController
   end
 
   def show
-   @user = current_user
-   @wishlist = @user.wishlist_items
+    @user = current_user
+    @lessons = @user.lessons
+    @meetings = @user.meetings
+    @wishlist = @user.wishlist_items
   end
 
   private
