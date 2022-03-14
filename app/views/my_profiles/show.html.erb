@@ -66,6 +66,14 @@
   </div>
 
 
+  <h4> Wishlist: </h4>
+    <% @wishlist.each do |item| %>
+    <p><%= item.lesson.title %>
+    <%= link_to "Remove",
+                  wishlist_item_path(item),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+    <% end %>
 
 
 

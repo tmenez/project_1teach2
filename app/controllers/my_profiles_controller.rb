@@ -18,6 +18,7 @@ class MyProfilesController < ApplicationController
     @user = current_user
     @lessons = @user.lessons
     @meetings = @user.meetings
+    @wishlist = @user.wishlist_items
   end
 
   private

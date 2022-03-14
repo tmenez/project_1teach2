@@ -14,7 +14,7 @@
 
   <%= link_to "Update Lesson", edit_lesson_path(@lesson) %>
 
-  <% if current_user.wishlist_items.include?(@lesson)%>
+  <% unless current_user.wishlist_lessons.include?(@lesson)%>
     <%= simple_form_for [ @lesson, @wishlist_item ] do |f| %>
       <%= f.submit "Add to wishlist" %>
     <% end%>
