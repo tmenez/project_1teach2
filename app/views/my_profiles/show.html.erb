@@ -5,11 +5,21 @@
   <h4> Following: </h4>
     <% @user.following.each do | following | %>
       <p><%= following.name %></p>
+      <% if following.photo.attached?%>
+        <%= cl_image_tag following.photo.key, class: "avatar" %>
+      <% else %>
+        <%= image_tag "avatar.png", class: "avatar" %>
+      <% end %>
     <% end %>
 
   <h4> Followers: </h4>
     <% @user.followers.each do | follower | %>
       <p><%= follower.name %></p>
+       <% if follower.photo.attached?%>
+          <%= cl_image_tag follower.photo.key, class: "avatar" %>
+        <% else %>
+          <%= image_tag "avatar.png", class: "avatar" %>
+        <% end %>
     <% end %>
 
 
