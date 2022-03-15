@@ -1,28 +1,40 @@
-<div class='container'>
-  <h2>Sign up</h2>
+<div class="container-global d-flex">
+  <div class="container-signup">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+      <div class="form-inputs">
+        <h2>New here? Sign up!</h2>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :name %>
+      </div>
 
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :name %>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+  <div class="container-img">
+    <div class="typewriter d-flex flex-column align-items-center justify-content-center">
+        <h1> 1teach2 </h1>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <div class="paint-row">
+    <div>
+      <%= image_tag "painting.png", class: "paint-image" %>
     </div>
-  <% end %>
+  </div>
+  </div>
 
-  <%= render "devise/shared/links" %>
 </div>
