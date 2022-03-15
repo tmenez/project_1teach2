@@ -1,8 +1,12 @@
-<li data-user=<%= user.id %>>
-  <%= link_to "#{user.name}", profile_path(user) %>
+<li data-user=<%= user.id %>, class='users-list'>
+  <%= link_to "#{user.name}", profile_path(user), class: 'user-followers' %>
   <% if current_user.is_following?(user.id) %>
-    <%= link_to "Unfollow", unfollow_profile_path(user.id), method: :post, remote: true,  class: "btn btn-primary pull-right" %>
+    <%= link_to unfollow_profile_path(user.id), method: :post, remote: true,  class: "btn btn-outline-light mt-3 mb-3" do %>
+      <i class="fas fa-minus-circle"></i>
+    <% end %>
   <% else %>
-    <%= link_to "Follow", follow_profile_path(user.id), method: :post, remote: true, class: "btn btn-primary pull-right"  %>
+    <%= link_to follow_profile_path(user.id), method: :post, remote: true, class: "btn btn-outline-light mt-3 mb-3" do %>
+      <i class="fas fa-plus-circle"></i>
+    <% end %>
   <% end %>
 </li>
