@@ -1,5 +1,6 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
@@ -17,4 +18,31 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 .lesson-edit {
   font-size: 20px;
   margin: 5px;
+
+}
+
+.pen-square {
+  color: white;
+}
+
+.lesson-title {
+  font-family: 'Fredericka the Great' !important;
+}
+
+.scheduled {
+  color: white
+}
+
+.lesson-date {
+  font-family: 'Fredericka the Great';
+  color: white;
+}
+
+.description {
+  font-family: 'Fredericka the Great';
+  color: white;
+}
+
+.form-label {
+  color: white;
 }
