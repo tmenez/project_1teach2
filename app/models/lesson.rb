@@ -4,4 +4,6 @@ class Lesson < ApplicationRecord
 
   belongs_to :user
   belongs_to :topic
+
+  has_one_attached :photo
 end

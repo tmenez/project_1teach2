@@ -2,7 +2,12 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:follow, :unfollow]
 
   def index
-    @users = User.where.not(id: current_user.id)
+    # @users = User.where.not(id: current_user.id)
+    if params[:query].present?
+      @users = User.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @users = User.where.not(id: current_user.id)
+    end
   end
 
   def follow

@@ -1,66 +1,62 @@
-<!-- Navbar -->
 
- <%# <form class="d-flex align-items-center w-100 form-search">
-        <div class="input-group">
-        <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
-        </div>
-        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
-      </form> %>
+ <!-- Navbar -->
 
-<div class="navbar navbar-expand-sm navbar-lewagon navbar-dark bg-dark">
 
-<%#
-      <form class="d-flex align-items-center form-search">
-        <div class="input-group">
-          <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
-        </div>
-        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
-      </form> %>
+<div class="navbar navbar-expand-sm navbar-lewagon navbar-dark bg-dark container-fluid">
       <form class="form-inline form-search d-flex align-items-center">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+        <%= form_tag lessons_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
       </form>
 
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
+        <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to  do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= link_to my_profiles_path  do %>
+             <i class="fas fa-home"></i>
+            <% end %>
+          </li>
+
+
+          <li class="nav-item">
+            <%= link_to profiles_path do %>
+              <i class="fas fa-users"></i>
             <% end %>
           </li>
 
           <li class="nav-item">
-            <%= link_to  do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= link_to lessons_path do %>
+              <i class="fas fa-book-open"></i>
             <% end %>
           </li>
 
           <li class="nav-item">
-            <%= link_to  do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to  do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out"></i>
             <% end %>
           </li>
 
           <li class="nav-item dropdown">
-           <%= link_to do %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.attached?%>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
             <% end %>
-
           </li>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
+
+        <% else %>
+          <%= link_to "#", class: "navbar-brand" do %>
+            <%= image_tag "avatar.png" %>
+          <% end %>
+        <% end %>
       </ul>
     </div>
 

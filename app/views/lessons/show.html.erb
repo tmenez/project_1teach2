@@ -1,11 +1,24 @@
 <div class='container'>
-  <h2><%= @lesson.title %></h2>
-  <p><%= @lesson.description %></p>
+
+    <% if @lesson.photo.attached?%>
+      <div class="banner" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url('<%= cl_image_path @lesson.photo.key, crop: :thumb, gravity: :face %>')">
+        <h1 class="text-center"> <%= @lesson.title %></h1>
+      </div>
+    <% else %>
+      <div class="banner" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url('<%= image_path 'lessons.jpg' %>')">
+        <h1 class="text-center"> <%= @lesson.title %></h1>
+      </div>
+    <% end %>
+
+
+
+  <p class='pt-3'><%= @lesson.description %></p>
   <p><%= @lesson.start_date %> | <%= @lesson.end_date %></p>
+
 
   <%= link_to "Update Lesson", edit_lesson_path(@lesson) %>
 
-  <% if current_user.wishlist_items.include?(@lesson)%>
+  <% unless current_user.wishlist_lessons.include?(@lesson)%>
     <%= simple_form_for [ @lesson, @wishlist_item ] do |f| %>
       <%= f.submit "Add to wishlist" %>
     <% end%>
