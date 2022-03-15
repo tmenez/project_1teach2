@@ -4,4 +4,17 @@
 
   <%= @user.name%>
   <%= @user.email%>
+
+  <h4> Wishlist: </h4>
+  <% if @wishlist_item.empty? %>
+    <h3>Nothing yet</h3>
+  <% else %>
+    <% @wishlist_item.each do |item| %>
+    <p><%= item.lesson.title %>
+    <%= link_to "Remove",
+                  wishlist_item_path(item),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+    <% end %>
+  <% end %>
 </div>

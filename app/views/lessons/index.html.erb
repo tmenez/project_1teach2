@@ -1,14 +1,6 @@
 <div class='container'>
   <h1>All classes: </h1>
 
-  <%= form_tag lessons_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a lesson"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
 
   <div>
     <% @lessons.each do |lesson| %>
@@ -16,4 +8,5 @@
       </div>
     <% end %>
   </div>
+  <%= link_to "Create a leson",  new_lesson_path, class: 'btn btn-sucess' %>
 </div>
