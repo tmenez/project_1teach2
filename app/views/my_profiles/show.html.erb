@@ -1,27 +1,30 @@
-<div class='container mt-5 container-profile'>
+<div class='container mt-5 container-profile w-100'>
 
   <div class='profile-item-1'>
-      <%= cl_image_tag @user.photo.key, :transformation=>[
-    {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
-    {:radius=>"max"},
-    {:width=>200, :crop=>"scale"}
-    ] %>
+    <div class='avatar-profile'>
+        <%= cl_image_tag @user.photo.key, :transformation=>[
+      {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+      {:radius=>"max"},
+      {:width=>200, :crop=>"scale"}
+      ] %>
+    </div>
       <%= link_to edit_my_profiles_path  do %>
         <i class="fas fa-pencil"></i>
       <% end %>
-      <h1 class='text-center mt-5'><%= @user.name %></h1>
+      <hr class='w-50 py-auto'>
+      <h1 class='text-center mt-5 user-name-profile'><%= @user.name %></h1>
       <p class='text-center'><%= @user.credits %> Credits</p>
       <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
   </div>
 
   <div class='profile-item-2'>
-    <h2 class='text-center'>Teaching path</h2>
+    <h2 class='text-center pt-3 pb-2'>Teaching path</h2>
     <div class="cards">
         <% if @lessons.empty? %>
           <p>No lessons yet</p>
         <% else %>
           <% @lessons.each do | lesson | %>
-            <div class="bg-white rounded-5 shadow h-100">
+            <div class="bg-white rounded-5 shadow h-30 w-75">
               <% if lesson.photo.attached?%>
                 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= cl_image_path lesson.photo.key %>')">
                   <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
@@ -38,7 +41,7 @@
   </div>
 
   <div class='profile-item-3'>
-    <h2 class='text-center'>Learning path</h2>
+    <h2 class='text-center pt-3 pb-2'>Learning path</h2>
     <div class="cards">
         <% if @meetings.empty? %>
           <p>No meetings yet</p>

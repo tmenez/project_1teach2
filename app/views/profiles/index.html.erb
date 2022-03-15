@@ -1,8 +1,8 @@
 <div class='container mt-5'>
   <p id="notice"><%= notice %></p>
 
-  <table class="table">
-    <thead>
+  <table class='table'>
+    <thead class='table-users'>
       <tr>
         <th scope="col">Users</th>
       </tr>
@@ -10,7 +10,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= render "user", user: user %></td>
+          <%= render "user", user: user %>
         </tr>
       <% end %>
     </tbody>
