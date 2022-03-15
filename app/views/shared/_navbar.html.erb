@@ -1,26 +1,17 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-<!-- Navbar -->
 
- <%# <form class="d-flex align-items-center w-100 form-search">
-        <div class="input-group">
-        <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
-        </div>
-        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
-      </form> %>
+ <!-- Navbar -->
 
-<div class="navbar navbar-expand-sm navbar-lewagon navbar-dark bg-dark">
 
-<%#
-      <form class="d-flex align-items-center form-search">
-        <div class="input-group">
-          <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
-        </div>
-        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
-      </form> %>
+<div class="navbar navbar-expand-sm navbar-lewagon navbar-dark bg-dark container-fluid">
       <form class="form-inline form-search d-flex align-items-center">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <a href="#!" class="text-white"><i class="fas fa-search ps-3"></i></a>
+        <%= form_tag lessons_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
       </form>
 
 
@@ -34,6 +25,7 @@
             <% end %>
           </li>
 
+
           <li class="nav-item">
             <%= link_to profiles_path do %>
               <i class="fas fa-users"></i>
@@ -42,7 +34,7 @@
 
           <li class="nav-item">
             <%= link_to lessons_path do %>
-              <i class="fas fa-users-class"></i>
+              <i class="fas fa-book-open"></i>
             <% end %>
           </li>
 
@@ -62,7 +54,7 @@
 
         <% else %>
           <%= link_to "#", class: "navbar-brand" do %>
-            <%= image_tag "avatar.png.gif" %>
+            <%= image_tag "avatar.png" %>
           <% end %>
         <% end %>
       </ul>

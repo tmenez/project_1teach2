@@ -1,15 +1,6 @@
 <div class='container mt-5'>
   <p id="notice"><%= notice %></p>
 
-  <%= form_tag profiles_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a friend"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-
   <h1>Users:</h1>
   <ul>
     <% @users.each do |user| %>
