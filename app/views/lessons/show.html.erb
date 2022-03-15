@@ -12,40 +12,49 @@
 
 
 
-  <p class='pt-3'><%= @lesson.description %></p>
-  <p><%= @lesson.start_date %> | <%= @lesson.end_date %></p>
+  <h4 class='pt-3'><%= @lesson.description %></h4>
+  <h6><%= @lesson.start_date %> | <%= @lesson.end_date %></h6>
 
+  <div class='lesson-edit'>
+    <%= link_to edit_lesson_path(@lesson) do %>
+      <i class="fas fa-pen-square"></i>
+    <% end %>
+    <%= link_to lesson_path(@lesson), method: :delete, data: { confirm: "Are you sure?" }  do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </div>
 
-  <%= link_to "Update Lesson", edit_lesson_path(@lesson) %>
-
-  <% unless current_user.wishlist_lessons.include?(@lesson)%>
-    <%= simple_form_for [ @lesson, @wishlist_item ] do |f| %>
-      <%= f.submit "Add to wishlist" %>
-    <% end%>
-  <% end %>
-
+  <div class='pt-3 bt-'>
+    <% unless current_user.wishlist_lessons.include?(@lesson)%>
+      <%= simple_form_for [ @lesson, @wishlist_item ] do |f| %>
+        <%= f.submit "Add to wishlist", class: 'btn btn-outline-dark' %>
+      <% end%>
+    <% end %>
+  </div>
+  <hr>
   <div>
     <% @lesson.meetings.each do |meeting|%>
       <div> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%>
-      <%= link_to "Update", edit_meeting_path(meeting) %>
-      <%= link_to "Remove",
-                  meeting_path(meeting),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
+      <%= link_to edit_meeting_path(meeting) do %>
+        <i class="fas fa-pen-square"></i>
+      <% end %>
+
+      <%= link_to meeting_path(meeting), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
       </div>
+      <hr>
     <% end %>
+
   </div>
 
   <%= simple_form_for [ @lesson, @meeting ] do |f| %>
     <%= f.input :name %>
     <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.submit "Create meeting" %>
+    <%= f.submit "Create meeting", class: 'btn btn-outline-success' %>
   <% end %>
 
-  <%= link_to "Lessons Index", lessons_path %>
-  <%= link_to "Remove",
-                    lesson_path(@lesson),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
+
+
 </div>

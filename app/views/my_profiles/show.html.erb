@@ -28,7 +28,7 @@
                   <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
                 </div>
               <% else %>
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= image_path "lessons.jpg" %>')">
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= image_tag "lessons.jpg" %>')">
                   <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
                 </div>
               <% end %>
