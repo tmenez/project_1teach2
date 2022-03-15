@@ -1,12 +1,15 @@
 <div class='container'>
-  <h1>All classes: </h1>
 
+  <div class="d-flex align-items-end flex-column">
+    <%= link_to "New class",  new_lesson_path, class: 'btn btn-primary mt-3 mb-3' %>
+  </div>
 
-  <div>
+  <div class="cards">
     <% @lessons.each do |lesson| %>
-      <div> <%= link_to lesson.title, lesson_path(lesson) %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to lesson.title, lesson_path(lesson), class: "links" %>
       </div>
     <% end %>
   </div>
-  <%= link_to "Create a leson",  new_lesson_path, class: 'btn btn-sucess' %>
+
 </div>
