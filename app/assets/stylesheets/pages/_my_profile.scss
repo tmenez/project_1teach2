@@ -1,0 +1,41 @@
+.container-profile {
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 200px 200px 200px 200px;
+  grid-template-areas:
+    'info info teach teach teach'
+    'info info teach teach teach'
+    'info info learn learn learn'
+    'friends friends learn learn learn'
+
+}
+
+.profile-item-1 {
+  grid-area: info;
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  place-self: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+}
+
+.profile-item-2 {
+ grid-area: teach;
+ position: absolute;
+ width: 824px;
+ height: 391px;
+ left: 591px;
+ top: 110px;
+ background: rgba(255, 255, 255, 0.9);
+ border-radius: 10px;
+}
+
+.profile-item-3 {
+  grid-area: learn;
+}
+
+.profile-item-4 {
+  grid-area: friends;
+}

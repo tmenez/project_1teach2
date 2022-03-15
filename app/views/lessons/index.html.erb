@@ -1,5 +1,6 @@
 <div class='container'>
-  <h1>hi</h1>
+  <h1>All classes: </h1>
+
 
   <div>
     <% @lessons.each do |lesson| %>
@@ -7,4 +8,5 @@
       </div>
     <% end %>
   </div>
+  <%= link_to "Create a leson",  new_lesson_path, class: 'btn btn-sucess' %>
 </div>

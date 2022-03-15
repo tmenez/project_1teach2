@@ -1,6 +1,89 @@
-<div class='container mt-5'>
-  <h1><%= @user.name %></h1>
-  <h1><%= @user.email %></h1>
-  <h1><%= @user.credits %></h1>
-<%= link_to 'Edit my info', edit_my_profiles_path %>
+<div class='container mt-5 container-profile'>
+
+  <div class='profile-item-1'>
+      <%= cl_image_tag @user.photo.key, :transformation=>[
+    {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+    {:radius=>"max"},
+    {:width=>200, :crop=>"scale"}
+    ] %>
+      <%= link_to edit_my_profiles_path  do %>
+        <i class="fas fa-pencil"></i>
+      <% end %>
+      <h1 class='text-center mt-5'><%= @user.name %></h1>
+      <p class='text-center'><%= @user.credits %> Credits</p>
+      <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
+  </div>
+
+  <div class='profile-item-2'>
+    <h2 class='text-center'>Teaching path</h2>
+    <div class="card-category">
+      <p>
+        <% if @lessons.empty? %>
+          <p>No lessons yet</p>
+        <% else %>
+          <% @lessons.each do | lesson | %>
+            <div class="bg-white rounded-5 shadow h-100">
+              <% if lesson.photo.attached?%>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= cl_image_path lesson.photo.key %>')">
+                  <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
+                </div>
+              <% else %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= image_path "lessons.jpg" %>')">
+                  <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end%>
+      </p>
+    </div>
+  </div>
+
+  <div class='profile-item-3'>
+    <h2 class='text-center'>Learning path</h2>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+      <p>
+        <% if @meetings.empty? %>
+        <p>No meetings yet</p>
+        <% else %>
+          <% @meetings.each do | meeting | %>
+            <%= meeting.lesson.title %>
+            <% if meeting.lesson.photo.attached?%>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= cl_image_tag meeting.lesson.photo.key %>')">
+                <h3><%= link_to meeting.lesson.title, lesson_path(meeting.lesson)%></h3>
+              </div>
+            <% else %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= image_tag "lessons.jpg" %>')">
+                <h3><%= link_to meeting.lesson.title, lesson_path(meeting.lesson)%></h3>
+              </div>
+            <% end %>
+
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <div class='profile-item-4'>
+    <h4 class='text-center'> Following: </h4>
+      <% @user.following.each do | following | %>
+        <p><%= following.name %></p>
+        <% if following.photo.attached?%>
+          <%= cl_image_tag following.photo.key, class: "avatar" %>
+        <% else %>
+          <%= image_tag "avatar.png", class: "avatar" %>
+        <% end %>
+      <% end %>
+
+    <h4> Followers: </h4>
+      <% @user.followers.each do | follower | %>
+        <p><%= follower.name %></p>
+        <% if follower.photo.attached?%>
+            <%= cl_image_tag follower.photo.key, class: "avatar" %>
+        <% else %>
+          <%= image_tag "avatar.png", class: "avatar" %>
+        <% end %>
+      <% end %>
+  </div>
+
 </div>

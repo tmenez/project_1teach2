@@ -1,12 +1,40 @@
+<<<<<<< HEAD
 // .navbar-lewagon {
 //   justify-content: space-between;
 //   background: white;
 // }
+=======
+// .navbar{
+//   background: rgba(255, 255, 255, 0.1) !important;
+// }
+
+
+.navbar-lewagon {
+  justify-content: space-between;
+  // background: rgba(255, 255, 255, 0.1) !important;
+}
+>>>>>>> master
 
 // .navbar-lewagon .navbar-collapse {
 //   flex-grow: 0;
 // }
 
+<<<<<<< HEAD
 // .navbar-lewagon .navbar-brand img {
 //   width: 40px;
 // }
+=======
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.form-search{
+  width: 70%;
+  justify-content: center;
+  margin-left: 100px;
+}
+
+.nav-item {
+  margin: 5px;
+}
+>>>>>>> master
