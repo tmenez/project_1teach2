@@ -38,7 +38,10 @@
     <% @lesson.meetings.each do |meeting|%>
       <div> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%>
 
-        <%= link_to "call", meeting_rooms_path(meeting), method: :post %>
+        <%= link_to meeting_rooms_path(meeting), method: :post do %>
+          <i class="fas fa-video"></i>
+        <% end %>
+        |
         <%= link_to edit_meeting_path(meeting) do %>
           <i class="fas fa-pen-square"></i>
         <% end %>
