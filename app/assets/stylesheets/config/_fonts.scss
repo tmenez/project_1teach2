@@ -46,3 +46,34 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 .form-label {
   color: white;
 }
+
+a.user-followers {
+  color: white !important;
+  text-decoration: none !important;
+}
+a.user-followers:hover {
+  color: rgb(226, 218, 218) !important;
+  text-decoration: none !important;
+}
+
+h1{
+  font-family: 'Fredericka the Great' !important;
+  color: white;
+}
+
+.table-users {
+  color: white;
+}
+
+.user-name-profile {
+  color: black;
+  padding-top: 50px;
+}
+
+h2{
+  font-family: 'Fredericka the Great' !important;
+}
+
+p{
+  font-family: 'Fredericka the Great' !important;
+}
