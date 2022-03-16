@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_11_184402) do
+ActiveRecord::Schema.define(version: 2022_03_16_181228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 2022_03_11_184402) do
     t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 
+  create_table "rooms", force: :cascade do |t|
+    t.string "session_token"
+    t.string "generated_token"
+    t.bigint "meetings_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meetings_id"], name: "index_rooms_on_meetings_id"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -117,6 +126,7 @@ ActiveRecord::Schema.define(version: 2022_03_11_184402) do
   add_foreign_key "lessons", "users"
   add_foreign_key "meetings", "lessons"
   add_foreign_key "meetings", "users"
+  add_foreign_key "rooms", "meetings", column: "meetings_id"
   add_foreign_key "wishlist_items", "lessons"
   add_foreign_key "wishlist_items", "users"
 end
