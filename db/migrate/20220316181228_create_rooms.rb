@@ -3,7 +3,7 @@ class CreateRooms < ActiveRecord::Migration[6.1]
     create_table :rooms do |t|
       t.string :session_token
       t.string :generated_token
-      t.references :meetings, null: false, foreign_key: true
+      t.references :meeting, null: false, foreign_key: true
 
       t.timestamps
     end

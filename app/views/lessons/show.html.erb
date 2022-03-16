@@ -32,6 +32,7 @@
                   meeting_path(meeting),
                   method: :delete,
                   data: { confirm: "Are you sure?" } %>
+      <%= link_to "call", meeting_rooms_path(meeting), method: :post %>
       </div>
     <% end %>
   </div>
