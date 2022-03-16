@@ -34,8 +34,19 @@
 
 .profile-item-3 {
   grid-area: learn;
+  position: absolute;
+  width: 824px;
+  height: 391px;
+  left: 591px;
+  top: 524px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px
 }
 
 .profile-item-4 {
   grid-area: friends;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
 }

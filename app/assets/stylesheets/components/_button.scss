@@ -10,3 +10,13 @@
 .fa-pen-square::before {
   color: white;
 }
+
+.btn-outline-light {
+  border-style: none;
+}
+
+.btn-outline-light:hover {
+  border-style: none;
+  background-color: rgb(76,110,134);
+  color: rgb(33,37,41);
+}

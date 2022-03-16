@@ -1,5 +1,5 @@
-<div class='container'>
-  <h1>Create a new class</h1>
+<div class='container w-50'>
+  <h1 class='text-center pt-3'>Create a new class</h1>
   <%= simple_form_for @lesson do |f| %>
     <%= f.input :title %>
     <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
@@ -7,6 +7,6 @@
     <%= f.input :topic_id, collection: @topics %>
     <%= f.input :description %>
     <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-outline-light mt-3 mb-3' %>
   <% end %>
 </div>
