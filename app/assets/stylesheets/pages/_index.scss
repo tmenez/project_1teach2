@@ -3,4 +3,13 @@
 @import "new";
 @import "signup";
 @import "my_profile";
+@import "profiles-index";
 @import "room";
+
+body{
+  font-family: 'Fredericka the Great', cursive;
+  margin: 0;
+  padding: 0;
+  background-color: #4C6E86;
+  height: 100%;
+}

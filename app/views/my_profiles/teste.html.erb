@@ -1,0 +1,4 @@
+        <div class='friends-name'>
+          <% @user.following.each do | following | %>
+            <p class='d-flex'><%= following.name %></p>
+        </div>
