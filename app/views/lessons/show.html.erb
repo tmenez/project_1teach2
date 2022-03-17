@@ -58,6 +58,11 @@
 
   </div>
 
+
+    <% if @meeting.errors.keys.include? (:credits) %>
+      <p class="bg-danger text-white p-3">insuficient credits</p>
+    <% end %>
+  
   <div class='w-50 justify-content-center'>
     <%= simple_form_for [ @lesson, @meeting ] do |f| %>
       <%= f.input :name %>

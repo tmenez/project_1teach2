@@ -5,6 +5,11 @@ class MeetingsController < ApplicationController
     @user = current_user
     @meeting.lesson = @lesson
     @meeting.user = @user
+    @wishlist_item = WishlistItem.new
+    if @user.credits <= 0
+      flash[:alert] = "Insuficient credits"
+      render 'lessons/show' and return
+    end
 
     if @meeting.save
       redirect_to lesson_path(@lesson)
