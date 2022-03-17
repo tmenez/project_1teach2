@@ -1,21 +1,24 @@
+
 <div class='container mt-5'>
-  <h2>Choose a new nickname:</h2>
-  <%= simple_form_for(@user, url: my_profiles_path) do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <section>
+    <h2>Choose a new nickname:</h2>
+    <%= simple_form_for(@user, url: my_profiles_path) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <div class="form-inputs">
-      <%= f.input :name, placeholder: 'Edit a name or nickname' %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :name, placeholder: 'Edit a name or nickname' %>
+      </div>
 
-    <div class="form-inputs">
-      <%= f.input :photo, as: :file %>
-    </div>
+      <div class="form-inputs">
+        <%= f.input :photo, as: :file %>
+      </div>
 
 
-    <div class="form-actions">
-      <%= f.button :submit, class: 'btn btn-primary' %>
-    </div>
+      <div class="form-actions">
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
 
-  <% end %>
+    <% end %>
+  </section>
 </div>

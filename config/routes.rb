@@ -18,5 +18,8 @@ Rails.application.routes.draw do
   end
 
   resources :wishlist_items, only: [:destroy]
-  resources :meetings, only: [ :edit, :update, :destroy ]
+  resources :meetings, only: [ :edit, :update, :destroy ] do
+    resources :rooms, only: [ :create ]
+  end
+  resources :rooms, only: [ :show ]
 end
