@@ -37,7 +37,7 @@
         <p>pronouns</p>
         <p class='text-center'><%= @user.credits %> Credits</p>
         <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
-         <p>bio</p>
+        <p>bio</p>
       </div>
   </div>
 
@@ -57,12 +57,12 @@
                       <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path lesson.photo.key%>')">
                         <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
                       </div>
+                    </div>
                       <% else %>
                           <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "lessons.jpg" %>')">
                             <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
                           </div>
                         <% end %>
-                    </div>
                   <% end %>
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -76,8 +76,6 @@
           </div>
         <% end %>
   </div>
-
-
 
 
   <div class='profile-item-3'>
@@ -131,5 +129,4 @@
 
       </div>
   </div>
-
 </div>
