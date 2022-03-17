@@ -1,19 +1,26 @@
 <div class='container mt-5'>
   <p id="notice"><%= notice %></p>
 
-  <table class='table'>
-    <thead class='table-users'>
-      <tr>
-        <th scope="col">Users</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
+  <div class='container-users'>
+    <table class='user-table'>
+      <thead class='table-users'>
+        <div clas='title-users'>
         <tr>
-          <%= render "user", user: user %>
+          <th scope="col">USERS</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+        </div>
+      </thead>
+      <tbody>
 
+        <div class='each-user'>
+          <% @users.each do |user| %>
+            <tr>
+              <%= render "user", user: user %>
+            </tr>
+          <% end %>
+        </div>
+
+      </tbody>
+    </table>
+  </div>
 </div>
