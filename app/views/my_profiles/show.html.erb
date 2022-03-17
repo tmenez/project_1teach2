@@ -1,13 +1,20 @@
 <div class='container mt-5 container-profile w-100'>
 
   <div class='profile-item-1'>
-    <div class='avatar-profile'>
-        <%= cl_image_tag @user.photo.key, :transformation=>[
-      {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
-      {:radius=>"max"},
-      {:width=>200, :crop=>"scale"}
-      ] %>
-    </div>
+    <% if @user.photo.attached?%>
+      <div class='avatar-profile'>
+          <%= cl_image_tag @user.photo.key, :transformation=>[
+        {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+        {:radius=>"max"},
+        {:width=>200, :crop=>"scale"}
+        ] %>
+      </div>
+    <% else %>
+      <div class='avatar-profile'>
+        <%= image_tag "avatar.png", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+      </div>
+    <% end %>
+
       <%= link_to edit_my_profiles_path  do %>
         <i class="fas fa-pencil"></i>
       <% end %>
