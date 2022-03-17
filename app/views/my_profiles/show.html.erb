@@ -16,6 +16,16 @@
       <%= link_to edit_my_profiles_path  do %>
         <i class="fas fa-pencil"></i>
       <% end %>
+
+      <hr class='w-50 py-auto'>
+      <h1 class='text-center mt-5 user-name-profile'><%= @user.name %></h1>
+      <p class='text-center'><%= @user.credits %> Credits</p>
+      <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
+      <p class='text-center'><%= @user.pronouns %></p>
+      <p class='text-center'>About me: <%= @user.bio %></p>
+      <p class='text-center'>About me: <%= @user.email%></p>
+  </div>
+
       <div class='line'>
         <hr class='w-50 py-auto'>
       </div>
@@ -95,13 +105,13 @@
         <hr class='w-50 py-auto'>
       </div>
       <div class='friends-following'>
-          <% @user.following.each do | following | %>
-        <div class='friends-avatar'>
-          <% if following.photo.attached?%>
-            <%= cl_image_tag following.photo.key, class: "avatar" %>
-          <% else %>
-            <%= image_tag "avatar.png", class: "avatar" %>
-          <% end %>
+        <% @user.following.each do | following | %>
+          <div class='friends-avatar'>
+            <% if following.photo.attached?%>
+              <%= cl_image_tag following.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "avatar.png", class: "avatar" %>
+            <% end %>
         <% end %>
         </div>
       </div>
