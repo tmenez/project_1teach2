@@ -35,4 +35,13 @@ class User < ApplicationRecord
     return true if relationship
   end
 
+  def add_credits
+    self.credits +=1
+    self.save
+  end
+
+  def remove_credits
+    self.credits -=1
+    self.save
+  end
 end

@@ -25,6 +25,7 @@
       <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
       <p class='text-center'><%= @user.pronouns %></p>
       <p class='text-center'>About me: <%= @user.bio %></p>
+      <p class='text-center'>About me: <%= @user.email%></p>
   </div>
 
 
@@ -119,13 +120,13 @@
       </div>
 
       <div class='friends-following'>
-          <% @user.following.each do | following | %>
-        <div class='friends-avatar'>
-          <% if following.photo.attached?%>
-            <%= cl_image_tag following.photo.key, class: "avatar" %>
-          <% else %>
-            <%= image_tag "avatar.png", class: "avatar" %>
-          <% end %>
+        <% @user.following.each do | following | %>
+          <div class='friends-avatar'>
+            <% if following.photo.attached?%>
+              <%= cl_image_tag following.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "avatar.png", class: "avatar" %>
+            <% end %>
         <% end %>
         </div>
 
