@@ -1,5 +1,4 @@
 <div class='container mt-5 container-profile w-100'>
-
   <div class='profile-item-1'>
     <% if @user.photo.attached?%>
       <div class='avatar-profile'>
@@ -14,7 +13,6 @@
         <%= image_tag "avatar.png", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       </div>
     <% end %>
-
       <%= link_to edit_my_profiles_path  do %>
         <i class="fas fa-pencil"></i>
       <% end %>
@@ -28,20 +26,17 @@
       <p class='text-center'>About me: <%= @user.email%></p>
   </div>
 
-
       <div class='line'>
         <hr class='w-50 py-auto'>
       </div>
-
       <div class='user-info'>
         <h1 class='text-center mt-5 user-name-profile'><%= @user.name %></h1>
         <p>pronouns</p>
         <p class='text-center'><%= @user.credits %> Credits</p>
         <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
-         <p>bio</p>
+        <p>bio</p>
       </div>
   </div>
-
   <div class='profile-item-2'>
     <h2 class='text-center pt-3 pb-2'>Teaching path</h2>
             <div class='line-learn'>
@@ -58,12 +53,12 @@
                       <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path lesson.photo.key%>')">
                         <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
                       </div>
+                    </div>
                       <% else %>
                           <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "lessons.jpg" %>')">
                             <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
                           </div>
                         <% end %>
-                    </div>
                   <% end %>
               </div>
               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -77,17 +72,11 @@
           </div>
         <% end %>
   </div>
-
-
-
-
   <div class='profile-item-3'>
     <h2 class='text-center pt-3 pb-2'>Learning Path</h2>
-
       <div class='line-learn'>
         <hr class='w-50 py-auto'>
       </div>
-
     <div class="cards">
         <% if @meetings.empty? %>
           <p>No meetings yet</p>
@@ -106,19 +95,15 @@
                 <h3><%= link_to meeting.lesson.title, lesson_path(meeting.lesson)%></h3>
               </div>
             <% end %>
-
           <% end %>
         <% end %>
     </div>
   </div>
-
   <div class='profile-item-4'>
     <h4 class='friends text-center'> Friends: </h4>
-
       <div class='line-friends'>
         <hr class='w-50 py-auto'>
       </div>
-
       <div class='friends-following'>
         <% @user.following.each do | following | %>
           <div class='friends-avatar'>
@@ -129,8 +114,6 @@
             <% end %>
         <% end %>
         </div>
-
       </div>
   </div>
-
 </div>
