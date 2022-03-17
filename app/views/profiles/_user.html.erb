@@ -1,4 +1,4 @@
-<td data-user=<%= user.id %>, class='users-list'>
+<td data-user=<%= user.id %>>
   <% if user.photo.attached?%>
     <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <% else %>
