@@ -1,5 +1,5 @@
 .container-profile {
-  gap: 10px;
+  gap: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 200px 200px 200px 200px;
@@ -17,29 +17,21 @@
   height: 100%;
   border: 1px solid;
   place-self: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1.0);
   border-radius: 10px;
 }
 
 .profile-item-2 {
  grid-area: teach;
- position: absolute;
  width: 824px;
- height: 391px;
- left: 591px;
- top: 110px;
- background: rgba(255, 255, 255, 0.9);
+ background: rgba(255, 255, 255, 1.0);
  border-radius: 10px;
 }
 
 .profile-item-3 {
   grid-area: learn;
-  position: absolute;
   width: 824px;
-  height: 391px;
-  left: 591px;
-  top: 524px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1.0);
   border-radius: 10px
 }
 
@@ -47,6 +39,112 @@
   grid-area: friends;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1.0);
   border-radius: 10px;
+}
+
+.avatar-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+  padding-left: 0%;
+  padding-top: 10%;
+}
+
+.fas, .fa-solid {
+  font-family: "Font Awesome 6 Free";
+  font-size: 20px;
+  font-weight: 1000;
+  color:#8D99E4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.line-teach, .line-learn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.line-friends {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  margin: -22%;
+}
+
+.friends {
+  font-family: 'Fredericka the Great', cursive;
+  margin: 0px 0px 2px;
+  padding: 16px 0px 0px;
+}
+
+.friends-following {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+
+
+.friends-avatar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar-style {
+  object-fit: cover;
+}
+
+.car-card-category {
+  background-position: center;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.car-card-category a {
+  font-family: 'Fredericka the Great', cursive;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.cards {
+  display: flex;
+  justify-items: center;
+  justify-content: space-around;
 }

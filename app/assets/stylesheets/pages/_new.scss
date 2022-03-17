@@ -60,7 +60,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 1.0);
   // mix-blend-mode: normal;
   // border: 16px solid rgba(150, 225, 172, 0.11);
   box-sizing: border-box;
@@ -93,7 +93,7 @@ body{
 
 
 // blue login button
-.form-actions .btn {
+.btn-login {
   width: 158px;
   height: 48px;
   left: 647px;
@@ -110,9 +110,20 @@ body{
 
 .options {
   padding-bottom: 0;
+  margin-top: 20px;
+
+  a {
+    margin-top: 20px;
+  }
+
 }
 
-.options a {
+.forgot-password {
+  text-decoration: none;
+  color: #7BA4C1;
+}
+
+.btn-sign-up {
   color: #ffffff;
   text-decoration: none;
   display: flex;
