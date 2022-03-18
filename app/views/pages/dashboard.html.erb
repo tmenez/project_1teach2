@@ -1,20 +1,43 @@
+
+  <div class='welcome-dash'>
+    <h1>Welcome, <%= @user.name%> </h1>
+  </div>
+
+<div class='container mt-5 container-dashboard w-100'>
+
+  <div class='dashboard-item-1'>
+    calendar
+  </div>
+
+  <div class='dashboard-item-2'>
+    <h1> My wishlist </h4>
+      <div class='line'>
+        <hr class='w-50 py-auto'>
+      </div>
+    <% if @wishlist.empty? %>
+      <h3>Nothing here yet.</h3>
+    <% else %>
+      <% @wishlist.each do |item| %>
+      <p><%= item.lesson.title %>
+      <%= link_to "Remove",
+                    wishlist_item_path(item),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='dashboard-item-3'>
+    user dashboard
+  </div>
+
+
+</div>
+
 <div class='container'>
-  <h1>Pages#dashboard</h1>
-  <p>Find me in app/views/pages/dashboard.html.erb</p>
 
   <%= @user.name%>
   <%= @user.email%>
 
-  <h4> Wishlist: </h4>
-  <% if @wishlist_item.empty? %>
-    <h3>Nothing yet</h3>
-  <% else %>
-    <% @wishlist_item.each do |item| %>
-    <p><%= item.lesson.title %>
-    <%= link_to "Remove",
-                  wishlist_item_path(item),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-    <% end %>
-  <% end %>
+
 </div>
