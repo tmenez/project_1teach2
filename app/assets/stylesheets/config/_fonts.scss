@@ -1,7 +1,7 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500&family=Oswald:wght@200;300;400&display=swap');
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
@@ -34,7 +34,7 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 }
 
 .lesson-date {
-  font-family: 'Fredericka the Great';
+  font-family: 'Oswald';
   color: white;
 }
 
@@ -44,7 +44,9 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 }
 
 .form-label {
+  font-family: 'oswald' !important;
   color: white;
+  font-size: 20px;
 }
 
 a.user-followers {
@@ -75,5 +77,14 @@ h2{
 }
 
 p{
-  font-family: 'Fredericka the Great' !important;
+  font-family: 'Oswald' !important;
+}
+
+h5 {
+  font-family: 'Oswald' !important;
+  color: white;
+}
+
+#lesson_end_date {
+  font-family: 'Oswald' !important;
 }
