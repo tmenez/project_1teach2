@@ -1,6 +1,6 @@
 
   <div class='welcome-dash'>
-    <h1>Welcome, <%= @user.name%> </h1>
+    <h1 class='pt-3'>Welcome, <%= @user.name%> </h1>
   </div>
 
 <div class='container mt-5 container-dashboard w-100'>
@@ -28,16 +28,21 @@
   </div>
 
   <div class='dashboard-item-3'>
-    user dashboard
+    <% @user.following.each do | following | %>
+      <% following.lessons.each do | lesson | %>
+        <%= lesson.title %>
+      <% end %>
+    <% end %>
+
+    <% @user.following.each do | following | %>
+      <% following.meetings.each do | meeting | %>
+        <%= meeting.lesson.title %>
+      <% end %>
+    <% end %>
   </div>
 
 
-</div>
-
-<div class='container'>
-
-  <%= @user.name%>
-  <%= @user.email%>
+  </div>
 
 
 </div>
