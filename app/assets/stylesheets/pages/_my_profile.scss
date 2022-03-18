@@ -1,5 +1,5 @@
 .container-profile {
-  gap: 30px;
+  gap: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 200px 200px 200px 200px;
@@ -50,6 +50,8 @@
   padding-left: 0%;
   padding-top: 10%;
 }
+
+
 
 .fas, .fa-solid {
   font-family: "Font Awesome 6 Free";
