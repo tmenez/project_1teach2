@@ -51,13 +51,13 @@
                   <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>
               <% else %>
-                <%= image_tag "avatar.png", class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+                <%= image_tag "avatar.jpg", class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
               <% end %>
             </li>
 
           <% else %>
             <%= link_to "#", class: "navbar-brand" do %>
-              <%= image_tag "avatar.png" %>
+              <%= image_tag "avatar.jpg" %>
             <% end %>
           <% end %>
         </div>

@@ -6,38 +6,38 @@
 <div class='container mt-5 container-dashboard w-100'>
 
   <div class='dashboard-item-1'>
-    calendar
+    <h1> My meetings </h1>
+          <div class='line-wish'>
+        <hr class='w-50 py-auto'>
+      </div>
   </div>
 
   <div class='dashboard-item-2'>
-    <h1> My wishlist </h4>
-      <div class='line'>
+    <h1> My wishlist </h1>
+      <div class='line-wish'>
         <hr class='w-50 py-auto'>
       </div>
+
     <% if @wishlist.empty? %>
       <h3>Nothing here yet.</h3>
     <% else %>
-      <% @wishlist.each do |item| %>
-      <p><%= item.lesson.title %>
-      <%= link_to "Remove",
-                    wishlist_item_path(item),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-      <% end %>
+      <div class='each-wish'>
+        <% @wishlist.each do |item| %>
+        <p><%= item.lesson.title %>
+        <%= link_to "Remove",
+                      wishlist_item_path(item),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 
   <div class='dashboard-item-3'>
-    user dashboard
+    <h1>Recent activities</h1>
+    <div class='line-wish'>
+    <hr class='w-50 py-auto'>
   </div>
-
-
-</div>
-
-<div class='container'>
-
-  <%= @user.name%>
-  <%= @user.email%>
 
 
 </div>
