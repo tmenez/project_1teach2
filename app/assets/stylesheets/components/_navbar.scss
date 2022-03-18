@@ -5,6 +5,7 @@
 
 .navbar-lewagon {
   justify-content: space-between;
+  height: 70px;
   // background: rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -19,6 +20,7 @@
 }
 
 .form-search{
+
   width: 25%;
   justify-content: center;
   margin-left: 600px;
@@ -28,6 +30,7 @@
   margin: 5px;
   margin-left: 100px;
   margin: 20px;
+  //justify-content:right;
 }
 
 #navbarDropdown{
@@ -35,4 +38,13 @@
   height: 38px;
   border-radius: 50%;
   border: 1px solid white;
+
+}
+
+.navbar-icone{
+  position:absolute;
+  right: 0;
+  top: 0;
+  display:flex;
+  flex-direction: row;
 }

@@ -1,5 +1,5 @@
 
- <!-- Navbar -->
+<!-- Navbar -->
 
 
 <div class="navbar navbar-expand-sm navbar-lewagon navbar-dark bg-dark container-fluid">
@@ -17,55 +17,50 @@
                 <%= submit_tag "Search", class: "btn btn-primary" %>
               <% end %>
             </form>
-          <li class="nav-item active align-self-center justify-content-end">
-            <%= link_to my_profiles_path  do %>
-             <i class="fas fa-home"></i>
-            <% end %>
-          </li>
-
-            <form class="form-inline form-search d-flex align-items-center">
-              <%= form_tag lessons_path, method: :get do %>
-              <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Search"%>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
+          <div class="navbar-icone">
+            <li class="nav-item active align-self-center justify-content-end">
+              <%= link_to my_profiles_path  do %>
+              <i class="fas fa-home"></i>
               <% end %>
-            </form>
+            </li>
 
 
-          <li class="nav-item align-self-center">
-            <%= link_to profiles_path do %>
-              <i class="fas fa-users"></i>
+
+
+            <li class="nav-item align-self-center">
+              <%= link_to profiles_path do %>
+                <i class="fas fa-users"></i>
+              <% end %>
+            </li>
+
+            <li class="nav-item align-self-center">
+              <%= link_to lessons_path do %>
+                <i class="fas fa-book-open"></i>
+              <% end %>
+            </li>
+
+            <li class="nav-item align-self-center">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fas fa-sign-out"></i>
+              <% end %>
+            </li>
+
+            <li class="nav-item dropdown align-self-center">
+              <% if current_user.photo.attached?%>
+                <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "avatar.png", class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+              <% end %>
+            </li>
+
+          <% else %>
+            <%= link_to "#", class: "navbar-brand" do %>
+              <%= image_tag "avatar.png" %>
             <% end %>
-          </li>
-
-          <li class="nav-item align-self-center">
-            <%= link_to lessons_path do %>
-              <i class="fas fa-book-open"></i>
-            <% end %>
-          </li>
-
-          <li class="nav-item align-self-center">
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fas fa-sign-out"></i>
-            <% end %>
-          </li>
-
-          <li class="nav-item dropdown align-self-center">
-            <% if current_user.photo.attached?%>
-              <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "avatar.png", class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
-            <% end %>
-          </li>
-
-        <% else %>
-          <%= link_to "#", class: "navbar-brand" do %>
-            <%= image_tag "avatar.png" %>
           <% end %>
-        <% end %>
+        </div>
       </ul>
+
     </div>
 
 </div>
