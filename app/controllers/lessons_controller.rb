@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
     if params[:query].present?
       @lessons = Lesson.where("title ILIKE ?", "%#{params[:query]}%")
     else
-      @lessons = Lesson.all
+      @lessons = Lesson.all.order("updated_at DESC")
     end
   end
 

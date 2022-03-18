@@ -12,7 +12,7 @@
 
 
 
-  <h4 class='pt-3 description'><%= @lesson.description %></h4>
+  <h3 class='pt-3 description'><%= @lesson.description %></h3>
   <h6 class='lesson-date'><%= @lesson.start_date %> | <%= @lesson.end_date %></h6>
 
     <div class='lesson-edit'>
@@ -26,7 +26,7 @@
     </div>
     <hr>
      <% @lesson.meetings.each do |meeting|%>
-      <div> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%> | Contact student: <%= meeting.user.email %>
+      <h5> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%> | Contact student: <%= meeting.user.email %></h5>
 
         <%= link_to edit_meeting_path(meeting) do %>
           <i class="fas fa-pen-square"></i>
@@ -59,10 +59,11 @@
   </div>
 
 
-    <% if @meeting.errors.keys.include? (:credits) %>
-      <p class="bg-danger text-white p-3">insuficient credits</p>
+
+    <%  if @meeting.errors.keys.include? (:credits) %>
+       <p class="bg-danger text-white p-3">insuficient credits</p>
     <% end %>
-  
+
   <div class='w-50 justify-content-center'>
     <%= simple_form_for [ @lesson, @meeting ] do |f| %>
       <%= f.input :name %>

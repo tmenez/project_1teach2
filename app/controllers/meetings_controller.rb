@@ -7,7 +7,7 @@ class MeetingsController < ApplicationController
     @meeting.user = @user
     @wishlist_item = WishlistItem.new
     if @user.credits <= 0
-      flash[:alert] = "Insuficient credits"
+      flash[:alert] = "Insuficient credits, teach something to get more!!"
       render 'lessons/show' and return
     end
 
