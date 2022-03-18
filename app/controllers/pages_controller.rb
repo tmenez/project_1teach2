@@ -4,6 +4,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @wishlist = @user.wishlist_items
   end
-
 end
