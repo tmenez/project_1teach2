@@ -9,16 +9,18 @@
         ] %>
       </div>
     <% else %>
-      <div class='avatar-profile'>
-        <%= image_tag "avatar.png", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+      <div>
+        <%= image_tag "avatar.jpg", class: "avatar", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       </div>
     <% end %>
       <%= link_to edit_my_profiles_path  do %>
         <i class="fas fa-pencil"></i>
       <% end %>
 
-      <hr class='w-50 py-auto'>
-      <h1 class='text-center mt-5 user-name-profile'><%= @user.name %></h1>
+       <div class='line-learn'>
+        <hr class='w-50 py-auto'>
+      </div>
+      <h1 class='text-center user-name-profile'><%= @user.name %></h1>
       <p class='text-center'><%= @user.credits %> Credits</p>
       <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
       <p class='text-center'><%= @user.pronouns %></p>
@@ -130,7 +132,7 @@
               <% if following.photo.attached?%>
                 <%= cl_image_tag following.photo.key, class: "avatar" %>
               <% else %>
-                <%= image_tag "avatar.png", class: "avatar" %>
+                <%= image_tag "avatar.jpg", class: "avatar" %>
               <% end %>
           <% end %>
           </div>
