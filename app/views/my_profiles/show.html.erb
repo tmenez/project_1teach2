@@ -10,16 +10,18 @@
       </div>
     <% else %>
       <div>
-        <%= image_tag "avatar.jpg", class: "avatar", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+        <%= image_tag "avatar.jpg", class: "avatar-profile", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       </div>
     <% end %>
+
       <%= link_to edit_my_profiles_path  do %>
         <i class="fas fa-pencil"></i>
       <% end %>
-    
-       <div class='line'>
+
+      <div class='line'>
         <hr class='w-50 py-auto'>
       </div>
+
       <h1 class='text-center user-name-profile'><%= @user.name %></h1>
       <p class='text-center'><%= @user.credits %> Credits</p>
       <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>

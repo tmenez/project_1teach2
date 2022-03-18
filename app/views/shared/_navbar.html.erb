@@ -19,7 +19,7 @@
             </form>
           <div class="navbar-icone">
             <li class="nav-item active align-self-center justify-content-end">
-              <%= link_to my_profiles_path  do %>
+              <%= link_to dashboard_path  do %>
               <i class="fas fa-home"></i>
               <% end %>
             </li>
@@ -48,10 +48,13 @@
             <li class="nav-item dropdown align-self-center">
               <% if current_user.photo.attached?%>
                 <%= link_to my_profiles_path do %>
-                  <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle", 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>
               <% else %>
-                <%= image_tag "avatar.jpg", class: "avatar rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+                <%= link_to my_profiles_path do %>
+                 <%= image_tag "avatar.jpg", class: "avatar rounded-circle" %>
+                <% end%>
+
               <% end %>
             </li>
 

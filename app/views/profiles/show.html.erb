@@ -15,7 +15,18 @@
       </div>
     <% end %>
 
-
+    <div class='follow-btn'>
+      <% if current_user.is_following?(@user.id) %>
+        <%= link_to unfollow_profile_path(@user.id), method: :post,  class: "btn btn-outline-light mt-3 mb-3" do %>
+          <i class="fas fa-minus"></i>
+        <% end %>
+      <% else %>
+        <%= link_to follow_profile_path(@user.id), method: :post, class: "btn btn-outline-light mt-3 mb-3" do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+      <% end %>
+    </div>
+    
       <div class='line-learn'>
         <hr class='w-50 py-auto'>
       </div>
