@@ -1,7 +1,7 @@
 class Meeting < ApplicationRecord
   belongs_to :user
   belongs_to :lesson
-  has_one :room
+  has_one :room, dependent: :destroy
 
   validate :check_lesson_time
   validate :check_credits

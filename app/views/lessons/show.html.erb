@@ -29,24 +29,27 @@
       <% @lesson.meetings.each do |meeting|%>
         <h5> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%> | Contact student: <%= meeting.user.email %></h5>
 
-          <%= link_to edit_meeting_path(meeting) do %>
-            <i class="fas fa-pen-square" style='display:inline;'></i>
-          <% end %>
-          |
-          <%= link_to meeting_path(meeting), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="fas fa-trash-alt" style='display:inline;'></i>
-          <% end %>
-          |
-          <% if @lesson.user == current_user %>
-            <%= link_to meeting_rooms_path(meeting), method: :post do %>
-              <i class="fas fa-video" style='display:inline;'></i>
+            <%= link_to edit_meeting_path(meeting) do %>
+              <i class="fas fa-pen-square" style='display:inline;'></i>
             <% end %>
-          <% end %>
+            |
+            <% if meeting.user == current_user %>
+              <%= link_to meeting_path(meeting), method: :delete, data: { confirm: "Are you sure?" } do %>
+                <i class="fas fa-trash-alt" style='display:inline;'></i>
+              <% end %>
+            <% end %>
+            |
+            <% if @lesson.user == current_user %>
+              <%= link_to meeting_rooms_path(meeting), method: :post do %>
+                <i class="fas fa-video" style='display:inline;'></i>
+              <% end %>
+            <% end %>
+
         <hr>
       <% end %>
     </div>
 
-  <div class='pt-3 bt-'>
+  <div class='pt-1'>
     <% unless current_user.wishlist_lessons.include?(@lesson)%>
       <%= simple_form_for [ @lesson, @wishlist_item ] do |f| %>
         <%= f.submit "Add to wishlist", class: 'btn btn-outline-light mt-3 mb-3' %>

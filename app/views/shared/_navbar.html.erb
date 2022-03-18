@@ -1,71 +1,68 @@
 
 <!-- Navbar -->
 
+<% if user_signed_in? %>
+  <div class="navbar navbar-expand-sm navbar-lewagon navbar-dark bg-dark container-fluid">
 
-<div class="navbar navbar-expand-sm navbar-lewagon navbar-dark bg-dark container-fluid">
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
 
-    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-            <form class="form-inline form-search d-flex align-items-center">
-              <%= form_tag lessons_path, method: :get do %>
-                <%= text_field_tag :query,
-                  params[:query],
-                  class: "form-control",
-                  placeholder: "Search"
-                %>
-                <%= submit_tag "Search", class: "btn btn-primary" %>
-              <% end %>
-            </form>
-          <div class="navbar-icone">
-            <li class="nav-item active align-self-center justify-content-end">
-              <%= link_to dashboard_path  do %>
-              <i class="fas fa-home"></i>
-              <% end %>
-            </li>
-
-
-
-
-            <li class="nav-item align-self-center">
-              <%= link_to profiles_path do %>
-                <i class="fas fa-users"></i>
-              <% end %>
-            </li>
-
-            <li class="nav-item align-self-center">
-              <%= link_to lessons_path do %>
-                <i class="fas fa-book-open"></i>
-              <% end %>
-            </li>
-
-            <li class="nav-item align-self-center">
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out"></i>
-              <% end %>
-            </li>
-
-            <li class="nav-item dropdown align-self-center">
-              <% if current_user.photo.attached?%>
-                <%= link_to my_profiles_path do %>
-                  <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle", 'aria-haspopup': true, 'aria-expanded': false %>
+              <form class="form-inline form-search d-flex align-items-center">
+                <%= form_tag lessons_path, method: :get do %>
+                  <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Search"
+                  %>
+                  <%= submit_tag "Search", class: "btn btn-primary" %>
                 <% end %>
-              <% else %>
-                <%= link_to my_profiles_path do %>
-                 <%= image_tag "avatar.jpg", class: "avatar rounded-circle" %>
-                <% end%>
+              </form>
+            <div class="navbar-icone">
+              <li class="nav-item active align-self-center justify-content-end">
+                <%= link_to dashboard_path  do %>
+                <i class="fas fa-home"></i>
+                <% end %>
+              </li>
 
-              <% end %>
-            </li>
 
-          <% else %>
-            <%= link_to "#", class: "navbar-brand" do %>
-              <%= image_tag "avatar.jpg" %>
-            <% end %>
-          <% end %>
-        </div>
-      </ul>
 
-    </div>
 
-</div>
+              <li class="nav-item align-self-center">
+                <%= link_to profiles_path do %>
+                  <i class="fas fa-users"></i>
+                <% end %>
+              </li>
+
+              <li class="nav-item align-self-center">
+                <%= link_to lessons_path do %>
+                  <i class="fas fa-book-open"></i>
+                <% end %>
+              </li>
+
+              <li class="nav-item align-self-center">
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out"></i>
+                <% end %>
+              </li>
+
+              <li class="nav-item dropdown align-self-center">
+                <% if current_user.photo.attached?%>
+                  <%= link_to my_profiles_path do %>
+                    <%= cl_image_tag current_user.photo.key, class: "avatar rounded-circle", 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% end %>
+                <% else %>
+                  <%= link_to my_profiles_path do %>
+                  <%= image_tag "avatar.jpg", class: "avatar rounded-circle" %>
+                  <% end%>
+
+                <% end %>
+              </li>
+
+
+          </div>
+        </ul>
+
+      </div>
+
+  </div>
+<% end %>
