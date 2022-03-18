@@ -10,19 +10,21 @@
         ] %>
       </div>
     <% else %>
-      <div class='avatar-profile'>
-        <%= image_tag "avatar.png", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+      <div>
+        <%= image_tag "avatar.jpg", class: "avatar-profile", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       </div>
     <% end %>
 
 
-      <hr class='w-50 py-auto'>
-      <h1 class='text-center mt-5 user-name-profile'><%= @user.name %></h1>
+      <div class='line-learn'>
+        <hr class='w-50 py-auto'>
+      </div>
+      <h1 class='text-center user-name-profile'><%= @user.name %></h1>
       <p class='text-center'><%= @user.credits %> Credits</p>
       <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
       <p class='text-center'><%= @user.pronouns %></p>
       <p class='text-center'>About me: <%= @user.bio %></p>
-      <p class='text-center'>About me: <%= @user.email%></p>
+
   </div>
 
 
