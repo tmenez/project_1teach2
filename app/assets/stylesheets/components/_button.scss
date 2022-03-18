@@ -5,6 +5,7 @@
 .fa-trash-alt::before {
   color: white;
   margin-left: 5px;
+  text-decoration: none !important;
 }
 
 .fa-pen-square::before {
@@ -16,4 +17,8 @@
 .btn-outline-light:hover {
   background-color: rgb(76,110,134);
   color: rgb(33,37,41);
+}
+
+a {
+  text-decoration: none;
 }
