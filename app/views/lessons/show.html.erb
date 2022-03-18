@@ -14,7 +14,7 @@
 
   <h4 class='pt-3 description'><%= @lesson.description %></h4>
   <h6 class='lesson-date'><%= @lesson.start_date %> | <%= @lesson.end_date %></h6>
-  <% if @lesson.user == current_user %>
+
     <div class='lesson-edit'>
       <%= link_to edit_lesson_path(@lesson) do %>
         <i class="fas fa-pen-square"></i>
@@ -28,16 +28,17 @@
      <% @lesson.meetings.each do |meeting|%>
       <div> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%> | Contact student: <%= meeting.user.email %>
 
-        <%= link_to meeting_rooms_path(meeting), method: :post do %>
-          <i class="fas fa-video"></i>
-        <% end %>
-        |
         <%= link_to edit_meeting_path(meeting) do %>
           <i class="fas fa-pen-square"></i>
         <% end %>
         |
         <%= link_to meeting_path(meeting), method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="fas fa-trash-alt"></i>
+        <% end %>
+        |
+        <% if @lesson.user == current_user %>
+          <%= link_to meeting_rooms_path(meeting), method: :post do %>
+            <i class="fas fa-video"></i>
         <% end %>
       </div>
       <hr>
@@ -57,6 +58,11 @@
 
   </div>
 
+
+    <% if @meeting.errors.keys.include? (:credits) %>
+      <p class="bg-danger text-white p-3">insuficient credits</p>
+    <% end %>
+  
   <div class='w-50 justify-content-center'>
     <%= simple_form_for [ @lesson, @meeting ] do |f| %>
       <%= f.input :name %>

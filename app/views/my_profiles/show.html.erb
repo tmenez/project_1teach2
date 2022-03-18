@@ -1,5 +1,4 @@
 <div class='container mt-5 container-profile w-100'>
-
   <div class='profile-item-1'>
     <% if @user.photo.attached?%>
       <div class='avatar-profile'>
@@ -14,15 +13,22 @@
         <%= image_tag "avatar.png", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       </div>
     <% end %>
-
       <%= link_to edit_my_profiles_path  do %>
         <i class="fas fa-pencil"></i>
       <% end %>
 
+      <hr class='w-50 py-auto'>
+      <h1 class='text-center mt-5 user-name-profile'><%= @user.name %></h1>
+      <p class='text-center'><%= @user.credits %> Credits</p>
+      <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
+      <p class='text-center'><%= @user.pronouns %></p>
+      <p class='text-center'>About me: <%= @user.bio %></p>
+      <p class='text-center'>About me: <%= @user.email%></p>
+  </div>
+
       <div class='line'>
         <hr class='w-50 py-auto'>
       </div>
-
       <div class='user-info'>
         <h1 class='text-center mt-5 user-name-profile'><%= @user.name %></h1>
         <p>pronouns</p>
@@ -31,13 +37,14 @@
         <p>bio</p>
       </div>
   </div>
-
   <div class='profile-item-2'>
     <h2 class='text-center pt-3 pb-2'>Teaching path</h2>
+
 
       <div class='line-learn'>
         <hr class='w-50 py-auto'>
       </div>
+
 
 
         <% if @lessons.empty? %>
@@ -61,6 +68,7 @@
                   </div>
                 <% end %>
               </div>
+
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -77,9 +85,9 @@
 
 
 
+
   <div class='profile-item-3'>
     <h2 class='text-center pt-3 pb-2'>Learning Path</h2>
-
       <div class='line-learn'>
         <hr class='w-50 py-auto'>
       </div>
@@ -87,6 +95,7 @@
         <% if @meetings.empty? %>
           <p class='text-center'>No meetings yet</p>
         <% else %>
+
 
 
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -115,28 +124,25 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
+
         <% end %>
   </div>
 
-
   <div class='profile-item-4'>
     <h4 class='friends text-center'> Friends: </h4>
-
       <div class='line-friends'>
         <hr class='w-50 py-auto'>
       </div>
-
       <div class='friends-following'>
-          <% @user.following.each do | following | %>
-        <div class='friends-avatar'>
-          <% if following.photo.attached?%>
-            <%= cl_image_tag following.photo.key, class: "avatar" %>
-          <% else %>
-            <%= image_tag "avatar.png", class: "avatar" %>
-          <% end %>
+        <% @user.following.each do | following | %>
+          <div class='friends-avatar'>
+            <% if following.photo.attached?%>
+              <%= cl_image_tag following.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "avatar.png", class: "avatar" %>
+            <% end %>
         <% end %>
         </div>
-
       </div>
   </div>
 </div>
