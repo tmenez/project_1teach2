@@ -31,6 +31,8 @@ class MeetingsController < ApplicationController
     end
   end
 
+ 
+
   def destroy
     @meeting = Meeting.find(params[:id])
     @lesson = @meeting.lesson
