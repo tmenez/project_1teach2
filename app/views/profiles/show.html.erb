@@ -18,11 +18,11 @@
     <div class='follow-btn'>
       <% if current_user.is_following?(@user.id) %>
         <%= link_to unfollow_profile_path(@user.id), method: :post,  class: "btn btn-outline-light mt-3 mb-3" do %>
-          <i class="fas fa-minus"></i>
+          <i class="fas fa-user-minus"></i>
         <% end %>
       <% else %>
         <%= link_to follow_profile_path(@user.id), method: :post, class: "btn btn-outline-light mt-3 mb-3" do %>
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-user-plus"></i>
         <% end %>
       <% end %>
     </div>
