@@ -48,3 +48,24 @@
   display:flex;
   flex-direction: row;
 }
+ .search {
+   background-color: rgb(141,153,228) !important;
+   border-color: rgb(141,153,228) !important;
+   border-radius: 0 50% 50% 0;
+ }
+
+ .search:hover {
+  background-color: rgb(76,110,134);
+ }
+
+.fa-users:hover {
+  color: rgb(76,110,134);
+}
+
+.fa-book-open:hover {
+  color: rgb(76,110,134);
+}
+
+.fa-sign-out:hover {
+  color: rgb(76,110,134);
+}

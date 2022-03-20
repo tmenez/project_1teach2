@@ -31,10 +31,7 @@
         <hr class='w-50 py-auto'>
       </div>
       <h1 class='text-center user-name-profile'><%= @user.name %></h1>
-      <div class="d-flex flex-row">
-        <i class="fas fa-coins"></i>
-        <p class='text-center justify-content-start'><%= @user.credits %></p>
-      </div>
+      <p class='text-center'><i class="fas fa-coins"></i><%= @user.credits %></p>
       <p class='text-center'><i class="fas fa-graduation-cap"></i><%= @user.meetings.count %> new things.</p>
       <p class='text-center'><%= @user.pronouns %></p>
       <p class='text-center'>About me: <%= @user.bio %></p>
