@@ -9,14 +9,16 @@
     <div class="cards-lesson">
 
       <% @lessons.each do |lesson| %>
-        <% if lesson.photo.attached?%>
-          <div class="card-category grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path lesson.photo.key %>')">
-            <%= link_to lesson.title, lesson_path(lesson), class: "links" %>
-          </div>
-        <% else %>
-          <div class="card-category grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'lessons.jpg' %>')">
-            <%= link_to lesson.title, lesson_path(lesson), class: "links" %>
-          </div>
+        <%= link_to lesson_path(lesson), class: "links" do %>
+          <% if lesson.photo.attached?%>
+            <div class="card-category grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path lesson.photo.key %>')">
+              <div><%= lesson.title %></div>
+            </div>
+          <% else %>
+            <div class="card-category grow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'lessons.jpg' %>')">
+              <div><%= lesson.title %></div>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
