@@ -13,16 +13,26 @@
 }
 
 
+.fa-pencil:hover {
+  color: rgb(76,110,134);
+}
 
 .btn-outline-light:hover {
   background-color: rgb(76,110,134);
   color: rgb(33,37,41);
+  // border-color: rgb(76,110,134);
 }
 
 a {
   text-decoration: none;
 }
 
+a:hover {
+  color: rgb(76,110,134);
+}
+
 .fa-video::before {
   color: white;
 }
+
+

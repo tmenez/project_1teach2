@@ -1,5 +1,3 @@
-<div class='container'>
-
     <% if @lesson.photo.attached?%>
       <div class="banner" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.12) 0, rgba(0,0,0,0.55) 74.4%),url('<%= cl_image_path @lesson.photo.key, crop: :thumb, gravity: :face %>')">
         <h1 class="text-center lesson-title"> <%= @lesson.title %></h1>
@@ -9,6 +7,8 @@
         <h1 class="text-center lesson-title"> <%= @lesson.title %></h1>
       </div>
     <% end %>
+<div class='container'>
+
 
 
 
