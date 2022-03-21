@@ -40,8 +40,8 @@
             <% end %>
 
             <% if @lesson.user == current_user %>
-              <%= link_to meeting_rooms_path(meeting), method: :post do %>
-                <i class="fas fa-video" style='display:inline;'></i>
+              <%= link_to meeting_rooms_path(meeting), method: :post, class: 'btn-room' do %>
+                <span class='enter-room'><i class="fas fa-video" style='display:inline;'></i> | Enter Room</span>
               <% end %>
             <% end %>
 
