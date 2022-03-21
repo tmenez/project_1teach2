@@ -1,0 +1,54 @@
+
+.body-back {
+  background-color: #D8DCE4;
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
+}
+.title-welcome h2 {
+  color: #4C6E86;
+  display: flex;
+  font-size: 40px;
+  justify-content: space-around;
+  padding-top: 55px;
+}
+
+.title-welcome h1 {
+  color: #4C6E86;
+  font-size: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-all {
+  display: flex;
+  background-color: #D8DCE4;
+  justify-content: space-evenly;
+  align-content: flex-end;
+}
+
+
+// typewriter effect
+.typewritero h1 {
+  color: #4C6E86;
+  font-family: 'Fredericka the Great';
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #9092f36b; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(10, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 80% }
+}
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #D8DCE4 }
+}
