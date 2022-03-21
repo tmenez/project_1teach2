@@ -1,31 +1,31 @@
 <div class='container mt-5 pb-5'>
   <div class='container mt-5 container-profile w-100'>
-  <div class='profile-item-1'>
-    <% if @user.photo.attached?%>
-      <div class='avatar-profile'>
-          <%= cl_image_tag @user.photo.key, :transformation=>[
-        {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
-        {:radius=>"max"},
-        {:width=>200, :crop=>"scale"}
-        ] %>
-      </div>
-    <% else %>
-      <div>
-        <%= image_tag "avatar.jpg", class: "avatar-profile", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
-      </div>
-    <% end %>
-
-    <div class='follow-btn'>
-      <% if current_user.is_following?(@user.id) %>
-        <%= link_to unfollow_profile_path(@user.id), method: :post,  class: "btn btn-outline-light mt-3 mb-3" do %>
-          <i class="fas fa-user-minus"></i>
-        <% end %>
+    <div class='profile-item-1'>
+      <% if @user.photo.attached?%>
+        <div class='avatar-profile'>
+            <%= cl_image_tag @user.photo.key, :transformation=>[
+          {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
+          {:radius=>"max"},
+          {:width=>200, :crop=>"scale"}
+          ] %>
+        </div>
       <% else %>
-        <%= link_to follow_profile_path(@user.id), method: :post, class: "btn btn-outline-light mt-3 mb-3" do %>
-          <i class="fas fa-user-plus"></i>
-        <% end %>
+        <div>
+          <%= image_tag "avatar.jpg", class: "avatar-profile", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+        </div>
       <% end %>
-    </div>
+
+      <div class='follow-btn'>
+        <% if current_user.is_following?(@user.id) %>
+          <%= link_to unfollow_profile_path(@user.id), method: :post,  class: "btn btn-outline-light mt-3 mb-3" do %>
+            <i class="fas fa-user-minus"></i>
+          <% end %>
+        <% else %>
+          <%= link_to follow_profile_path(@user.id), method: :post, class: "btn btn-outline-light mt-3 mb-3" do %>
+            <i class="fas fa-user-plus"></i>
+          <% end %>
+        <% end %>
+      </div>
 
       <div class='line-learn'>
         <hr class='w-50 py-auto'>
@@ -38,122 +38,103 @@
         </div>
         <div class="d-flex icons-profile mb-3">
           <i class="fas fa-graduation-cap"></i><p><%= @user.meetings.count %> new things.</p>
-
         </div>
         <p class='about'>About me: <%= @user.bio %></p>
       </div>
+    </div>
 
-  </div>
-
-
-
-  <div class='profile-item-2 px-3'>
-    <h2 class='text-center pt-3 pb-2'>Teaching path</h2>
-
-
+    <div class='profile-item-2 px-3'>
+      <h2 class='text-center pt-3 pb-2'>Teaching path</h2>
       <div class='line-learn'>
         <hr class='w-50 py-auto'>
       </div>
 
-
-
-        <% if @user.lessons.empty? %>
-          <p class='text-center'>No lessons yet</p>
-        <% else %>
-
-
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <% @user.lessons.each_with_index do | lesson, index | %>
-                  <div class="carousel-item <%= index.zero? ? 'active' : '' %> ">
-                    <% if lesson.photo.attached?%>
-                        <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path lesson.photo.key%>')">
-                          <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
-                        </div>
-                    <% else %>
-                      <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "lessons.jpg" %>')">
-                        <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
-                      </div>
-                    <% end %>
+      <% if @user.lessons.empty? %>
+        <p class='text-center'>No lessons yet</p>
+      <% else %>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% @user.lessons.each_with_index do | lesson, index | %>
+              <div class="carousel-item <%= index.zero? ? 'active' : '' %> ">
+                <% if lesson.photo.attached?%>
+                  <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path lesson.photo.key%>')">
+                    <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
+                  </div>
+                <% else %>
+                  <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "lessons.jpg" %>')">
+                    <h3><%= link_to lesson.title, lesson_path(lesson)%></h3>
                   </div>
                 <% end %>
               </div>
-
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-        <% end %>
-  </div>
-
-
-
-
-
-
-      <div class='profile-item-3 px-3'>
-        <h2 class='text-center pt-3 pb-2'>Learning Path</h2>
-          <div class='line-learn'>
-            <hr class='w-50 py-auto'>
+            <% end %>
           </div>
 
-            <% if @user.meetings.empty? %>
-              <p class='text-center'>No meetings yet</p>
-            <% else %>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
 
-
-
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <% @user.meetings.each_with_index do | meeting, index | %>
-                      <%= meeting.lesson.title %>
-                      <div class="carousel-item <%= index.zero? ? 'active' : '' %> ">
-                        <% if meeting.lesson.photo.attached?%>
-                            <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= cl_image_path meeting.lesson.photo.key %>')">
-                              <h3><%= link_to meeting.lesson.title, lesson_path(meeting.lesson)%></h3>
-                            </div>
-                        <% else %>
-                          <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "lessons.jpg" %>')">
-                            <h3><%= link_to meeting.lesson.title, lesson_path(meeting.lesson)%></h3>
-                          </div>
-                        <% end %>
-                      </div>
-                    <% end %>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-
-            <% end %>
+    <div class='profile-item-3 px-3'>
+      <h2 class='text-center pt-3 pb-2'>Learning Path</h2>
+      <div class='line-learn'>
+        <hr class='w-50 py-auto'>
       </div>
+
+      <% if @user.meetings.empty? %>
+        <p class='text-center'>No meetings yet</p>
+      <% else %>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% @user.meetings.each_with_index do | meeting, index | %>
+              <%= meeting.lesson.title %>
+              <div class="carousel-item <%= index.zero? ? 'active' : '' %> ">
+                <% if meeting.lesson.photo.attached?%>
+                  <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(' <%= cl_image_path meeting.lesson.photo.key %>')">
+                    <h3><%= link_to meeting.lesson.title, lesson_path(meeting.lesson)%></h3>
+                  </div>
+                <% else %>
+                  <div class="car-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "lessons.jpg" %>')">
+                    <h3><%= link_to meeting.lesson.title, lesson_path(meeting.lesson)%></h3>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
 
     <div class='profile-item-4'>
       <h4 class='friends text-center'> Friends </h4>
-        <div class='line-friends'>
-          <hr class='w-50 py-auto'>
-        </div>
-        <div class='friends-following'>
-          <% @user.following.last(10).each do | following | %>
-            <div class='friends-avatar'>
-              <% if following.photo.attached?%>
-                <%= cl_image_tag following.photo.key, class: "avatar" %>
-              <% else %>
-                <%= image_tag "avatar.jpg", class: "avatar" %>
-              <% end %>
-          <% end %>
+      <div class='line-friends'>
+        <hr class='w-50 py-auto'>
+      </div>
+      <div class='friends-following'>
+        <% @user.following.last(10).each do | following | %>
+          <div class='friends-avatar'>
+            <% if following.photo.attached?%>
+              <%= cl_image_tag following.photo.key, class: "avatar" %>
+            <% else %>
+              <%= image_tag "avatar.jpg", class: "avatar" %>
+            <% end %>
           </div>
-        </div>
+        <% end %>
+      </div>
     </div>
-</div>
+  </div>
 </div>
