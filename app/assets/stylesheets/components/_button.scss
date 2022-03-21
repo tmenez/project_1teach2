@@ -66,9 +66,7 @@ a:hover {
   color: white;
 }
 
-// .enter-room:hover {
-//   color: rgb(126,193,209);
-// }
+
 
  .btn-room {
    border: 1px solid;
@@ -81,4 +79,13 @@ a:hover {
 
   .btn-room:hover {
     background-color: rgb(126,193,209);
+  }
+
+  .fa-magnifying-glass::before {
+    color: white;
+
+  }
+
+  .fa-magnifying-glass:hover::before {
+    color: rgb(230, 230, 230)
   }

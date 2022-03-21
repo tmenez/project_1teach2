@@ -14,7 +14,11 @@
                     class: "form-control",
                     placeholder: "Search"
                   %>
-                  <%= submit_tag "S", class: "btn btn-primary search" %>
+                  <%= button_tag(type: "submit", class: "btn btn-primary search") do %>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  <% end %>
+
+
                 <% end %>
               </form>
             <div class="navbar-icone">
