@@ -31,12 +31,6 @@
   </div>
 
 
-        <h1 class='text-center user-name-profile'><%= @user.name %></h1>
-        <p class='text-center'><%= @user.credits %> Credits</p>
-        <p class='text-center'>Learned <%= @user.meetings.count %> new things.</p>
-        <p class='text-center'><%= @user.pronouns %></p>
-        <p class='text-center'>About me: <%= @user.bio %></p>
-    </div>
 
     <div class='profile-item-2'>
       <h2 class='text-center pt-3 pb-2'>Teaching path</h2>
@@ -110,25 +104,6 @@
             </div>
           <% end %>
     </div>
-
-      <div class='profile-item-4'>
-        <h4 class='friends text-center'> Friends: </h4>
-          <div class='line-friends'>
-            <hr class='w-50 py-auto'>
-          </div>
-          <div class='friends-following'>
-            <% @user.following.each do | following | %>
-              <div class='friends-avatar'>
-                <% if following.photo.attached?%>
-                  <%= cl_image_tag following.photo.key, class: "avatar" %>
-                <% else %>
-                  <%= image_tag "avatar.jpg", class: "avatar" %>
-                <% end %>
-            <% end %>
-            </div>
-          </div>
-      </div>
-  </div>
 
 
     <div class='profile-item-4'>
