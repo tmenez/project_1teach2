@@ -26,7 +26,7 @@
             <i class="fas fa-trash-alt" style='display:inline;'></i>
           <% end %>
         <% end %>
-        <hr class='mb-5' id='hr-1'>
+        <hr class='mb-3' id='hr-1'>
         <% @lesson.meetings.each do |meeting|%>
           <h5 > Scheduled: <%= meeting. name %> <br> Date: From <%= meeting.start_time %> until <%= meeting.end_time%> <br> Contact student: <%= meeting.user.email %></h5>
               <% if meeting.user == current_user %>
@@ -42,11 +42,11 @@
 
               <% if @lesson.user == current_user %>
                 <%= link_to meeting_rooms_path(meeting), method: :post, class: 'btn-room' do %>
-                  <span class='enter-room'><i class="fas fa-video" style='display:inline;'></i> | Enter Room</span>
+                  <span class='enter-room mt-2'><i class="fas fa-video" style='display:inline;'></i> | Enter Room</span>
                 <% end %>
               <% end %>
 
-          <hr class='mt-5'>
+          <hr class='mt-4'>
         <% end %>
 
     </div>
