@@ -18,7 +18,15 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 .lesson-edit {
   font-size: 20px;
   margin: 5px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 50px;
+}
 
+.grid-date {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
 }
 
 .pen-square {
@@ -93,4 +101,8 @@ h5 {
 
 .flatpickr {
   font-family: 'Oswald' !important;
+}
+
+#hr-1 {
+  margin-top: 6%;
 }

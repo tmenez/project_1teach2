@@ -2,11 +2,15 @@
   <h1 class='text-center pt-3'>Edit your class</h1>
   <%= simple_form_for @lesson do |f| %>
     <%= f.input :title %>
-    <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <div class='grid-date'>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    </div>
     <%= f.input :description %>
-    <%= f.input :start_time, label: 'Lesson`s start time' %>
-    <%= f.input :end_time, label: 'Lesson`s end time' %>
+    <div class='grid-date'>
+      <%= f.input :start_time, label: 'Lesson`s start time' %>
+      <%= f.input :end_time, label: 'Lesson`s end time' %>
+    </div>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
   <% end %>
