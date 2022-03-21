@@ -24,9 +24,16 @@
   color: rgb(76,110,134);
 }
 
+.btn-outline-light {
+  color: rgb(141,153,228);
+  border-color: rgb(141,153,228);
+  font-family: 'Oswald';
+  font-weight: 20px;
+}
+
 .btn-outline-light:hover {
-  background-color: rgb(76,110,134);
-  color: rgb(33,37,41);
+  background-color: rgb(141,153,228);
+  color: white;
   // border-color: rgb(76,110,134);
 }
 

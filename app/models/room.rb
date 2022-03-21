@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
   require 'opentok'
-  belongs_to :meeting, dependent: :destroy
+  belongs_to :meeting
 
 
   before_create :generate_room_token
