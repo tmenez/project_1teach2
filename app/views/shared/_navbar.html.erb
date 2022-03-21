@@ -16,6 +16,12 @@
                   %>
                   <%= submit_tag "S", class: "btn btn-primary search" %>
                 <% end %>
+              <% else %>
+                <%= link_to my_profiles_path do %>
+                <%= image_tag "avatar.jpg", class: "avatar rounded-circle" %>
+                <% end%>
+              <% end %>
+            </li>
               </form>
             <div class="navbar-icone">
               <li class="nav-item active align-self-center justify-content-end">
