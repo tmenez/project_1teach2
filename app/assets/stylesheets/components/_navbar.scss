@@ -7,6 +7,9 @@
   justify-content: space-between;
   height: 70px;
   // background: rgba(255, 255, 255, 0.1) !important;
+  z-index: 1;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 // .navbar-lewagon .navbar-collapse {
@@ -52,7 +55,12 @@
    background-color: rgb(141,153,228) !important;
    border-color: rgb(141,153,228) !important;
    border-radius: 0 50% 50% 0;
+   padding: 7.5px;
  }
+
+  #query {
+    border-radius: 5px 0 0 5px !important;
+  }
 
  .search:hover {
   background-color: rgb(76,110,134);
