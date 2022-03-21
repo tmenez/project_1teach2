@@ -78,7 +78,7 @@ h1{
 
 .user-name-profile {
   color: black;
-  
+
 }
 
 h2{
@@ -109,4 +109,20 @@ h5 {
 
 .enter-room {
   font-family: 'Oswald';
+}
+
+.form-font {
+  font-family: 'Oswald';
+}
+
+.flatpickr-weekdays {
+  font-family: 'Oswald' !important;
+}
+
+.flatpickr-weekday, .flatpickr-current-month, input.cur-year, .flatpickr-time, .flatpickr-day, input.flatpickr-hour, input.flatpickr-minute, .flatpickr-am-pm   {
+  font-family: 'Oswald' !important;
+}
+
+option {
+  font-family: 'Oswald' !important;
 }
