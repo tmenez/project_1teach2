@@ -1,5 +1,5 @@
-<div dlass='background'>
-  <div class='container mt-5 container-profile w-100'>
+
+<div class='container mt-5 container-profile w-100'>
     <div class='profile-item-1'>
       <% if @user.photo.attached?%>
         <div class='avatar-profile'>
@@ -28,7 +28,7 @@
       <p class='text-center'><i class="fas fa-graduation-cap"></i><%= @user.meetings.count %> new things.</p>
       <p class='text-center'><%= @user.pronouns %></p>
       <p class='text-center'>About me: <%= @user.bio %></p>
-  </div>
+    </div>
 
 
 
@@ -119,8 +119,8 @@
               <% else %>
                 <%= image_tag "avatar.jpg", class: "avatar" %>
               <% end %>
+            </div>
           <% end %>
-          </div>
         </div>
     </div>
 </div>
