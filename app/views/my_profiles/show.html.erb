@@ -121,7 +121,7 @@
           <hr class='w-50 py-auto'>
         </div>
         <div class='friends-following'>
-          <% @user.following.each do | following | %>
+          <% @user.following.last(10).each do | following | %>
             <div class='friends-avatar'>
               <% if following.photo.attached?%>
                 <%= cl_image_tag following.photo.key, class: "avatar" %>
