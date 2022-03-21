@@ -58,26 +58,27 @@ a:hover {
   color: white;
 }
 
-.fa-video:hover::before {
-  color: rgb(126,193,209);
-}
+// .fa-video:hover::before {
+//   color: rgb(126,193,209);
+// }
 
 .enter-room {
   color: white;
 }
 
-.enter-room:hover {
-  color: rgb(126,193,209);
-}
+// .enter-room:hover {
+//   color: rgb(126,193,209);
+// }
 
  .btn-room {
    border: 1px solid;
    padding: 5px;
    border-color: white;
    border-radius: 3px;
+   margin-top: 10px;
 
   }
 
   .btn-room:hover {
-    color: rgb(126,193,209);
+    background-color: rgb(126,193,209);
   }

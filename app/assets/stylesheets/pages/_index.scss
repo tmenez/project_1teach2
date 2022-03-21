@@ -14,5 +14,7 @@ body{
   padding: 0;
   background-color: #4C6E86;
   background-repeat: repeat;
-  height: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

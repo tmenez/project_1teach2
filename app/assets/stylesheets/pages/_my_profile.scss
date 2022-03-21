@@ -71,6 +71,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding-top: 5%;
 }
 
@@ -166,4 +167,26 @@
   position: sticky;
   justify-content: space-between;
   width: 100vw;
+}
+
+.icons-profile{
+  //float: left;
+  //flex-direction: 30%;
+
+  margin-left: 58px;
+  i{
+    margin: 0;
+    padding: 0;
+  }
+
+  p{
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+  }
+
+}
+
+.about{
+  margin-left: 58px;
 }
