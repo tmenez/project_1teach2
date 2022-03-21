@@ -8,21 +8,69 @@
   text-decoration: none !important;
 }
 
+.fa-trash-alt:hover::before{
+  color: rgb(126,193,209);
+}
+
 .fa-pen-square::before {
   color: white;
 }
 
+.fa-pen-square:hover::before {
+  color: rgb(126,193,209);
+}
 
+.fa-pencil:hover {
+  color: rgb(76,110,134);
+}
 
 .btn-outline-light:hover {
   background-color: rgb(76,110,134);
   color: rgb(33,37,41);
+  // border-color: rgb(76,110,134);
 }
 
 a {
   text-decoration: none;
 }
 
+a:hover {
+  color: rgb(76,110,134);
+}
+
 .fa-video::before {
   color: white;
 }
+
+.leaveRoom {
+  z-index: 5000;
+}
+
+
+.fa-video::before {
+  color: white;
+}
+
+.fa-video:hover::before {
+  color: rgb(126,193,209);
+}
+
+.enter-room {
+  color: white;
+}
+
+.enter-room:hover {
+  color: rgb(126,193,209);
+}
+
+ .btn-room {
+   border: 1px solid;
+   padding: 5px;
+   border-color: white;
+   border-radius: 3px;
+
+  }
+
+  .btn-room:hover {
+    color: rgb(126,193,209);
+  }

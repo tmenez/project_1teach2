@@ -1,21 +1,22 @@
 <td data-user=<%= user.id %>>
-  <% if user.photo.attached?%>
-    <%= cl_image_tag user.photo.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <% if current_user.is_following?(user.id) %>
+    <%= link_to unfollow_profile_path(user.id), method: :post, remote: true,  class: "btn btn-outline-light mt-3 mb-3" do %>
+      <i class="fas fa-user-minus"></i>
+    <% end %>
   <% else %>
-    <%= image_tag "avatar.jpg", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+    <%= link_to follow_profile_path(user.id), method: :post, remote: true, class: "btn btn-outline-light mt-3 mb-3" do %>
+      <i class="fas fa-user-plus"></i>
+    <% end %>
+  <% end %>
+  <% if user.photo.attached?%>
+    <%= cl_image_tag user.photo.key, class: "avatar" %>
+  <% else %>
+    <%= image_tag "avatar.jpg", class: "avatar" %>
   <% end %>
   <% if user.name.present? %>
     <%= link_to "#{user.name}", profile_path(user), class: 'user-followers py-3' %>
   <% else %>
     <%= link_to "#{user.email}", profile_path(user), class: 'user-followers py-3' %>
   <% end %>
-  <% if current_user.is_following?(user.id) %>
-    <%= link_to unfollow_profile_path(user.id), method: :post, remote: true,  class: "btn btn-outline-light mt-3 mb-3" do %>
-      <i class="fas fa-minus"></i>
-    <% end %>
-  <% else %>
-    <%= link_to follow_profile_path(user.id), method: :post, remote: true, class: "btn btn-outline-light mt-3 mb-3" do %>
-      <i class="fas fa-plus"></i>
-    <% end %>
-  <% end %>
+
 </td>
