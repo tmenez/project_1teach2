@@ -1,7 +1,14 @@
 <body class='body-back'>
   <div class='typewritero title-welcome'>
-    <h2> Welcome to</h2>
-      <h1>your learning chain for the litle things.</h1>
+    <h1> Welcome to</h2>
+      <h2>your learning chain for the litle things.</h1>
+    <div id='logo'>
+        <%= image_tag "tranp-onetwo.gif", class: "logo12-image" %>
+    </div>
+  </div>
+
+  <div id='signin-land'>
+    <%= link_to "LOGIN", new_user_session_path, class: 'signin' %>
   </div>
 
   <div class='container-all'>

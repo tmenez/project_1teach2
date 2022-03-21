@@ -4,9 +4,12 @@
   background-repeat: repeat;
   height: 100%;
   width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 .title-welcome h2 {
   color: #4C6E86;
+  background-color: #D8DCE4;
   display: flex;
   font-size: 40px;
   justify-content: space-around;
@@ -15,9 +18,50 @@
 
 .title-welcome h1 {
   color: #4C6E86;
+  background-color: #D8DCE4;
   font-size: 40px;
   display: flex;
   justify-content: space-around;
+}
+
+#logo {
+  background-color: #D8DCE4;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+
+#signin-land {
+  background-color: #D8DCE4;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.signin {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  width: 158px;
+  height: 48px;
+  font-weight: bold;
+  // left: 647px;
+  // top: 404px;
+  color: #4C6E86;
+  background: #96E1AB;
+  border: 1px solid #96C2E1;
+  box-sizing: shadow;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  }
+
+.logo12-image {
+  height: 360px;
+  width: 360px;
+  background-color: #D8DCE4;
+  justify-content: space-evenly;
 }
 
 .container-all {
@@ -31,6 +75,7 @@
 // typewriter effect
 .typewritero h1 {
   color: #4C6E86;
+  margin: 0px;
   font-family: 'Fredericka the Great';
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid #9092f36b; /* The typwriter cursor */

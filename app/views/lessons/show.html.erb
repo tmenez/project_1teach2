@@ -16,66 +16,55 @@
   <h6 class='lesson-date'><%= @lesson.start_date %> | <%= @lesson.end_date %></h6>
 
     <div class='lesson-edit' >
-      <% if @lesson.user == current_user %>
-        <%= link_to edit_lesson_path(@lesson) do %>
-          <i class="fas fa-pen-square" style='display:inline;'></i>
-        <% end %>
+      <div>
+        <% if @lesson.user == current_user %>
+          <%= link_to edit_lesson_path(@lesson) do %>
+            <i class="fas fa-pen-square" style='display:inline;'></i>
+          <% end %>
 
-        <%= link_to lesson_path(@lesson), method: :delete, data: { confirm: "Are you sure?" }  do %>
-          <i class="fas fa-trash-alt" style='display:inline;'></i>
+          <%= link_to lesson_path(@lesson), method: :delete, data: { confirm: "Are you sure?" }  do %>
+            <i class="fas fa-trash-alt" style='display:inline;'></i>
+          <% end %>
         <% end %>
-      <% end %>
-      <hr>
-      <% @lesson.meetings.each do |meeting|%>
-        <h5> Scheduled: <%= meeting. name %> | Date: From <%= meeting.start_time %> until <%= meeting.end_time%> | Contact student: <%= meeting.user.email %></h5>
-            <% if meeting.user == current_user %>
-              <%= link_to edit_meeting_path(meeting) do %>
-                <i class="fas fa-pen-square" style='display:inline;'></i>
-              <% end %>
-              |
-                <%= link_to meeting_path(meeting), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="fas fa-trash-alt" style='display:inline;'></i>
+        <hr class='mb-5' id='hr-1'>
+        <% @lesson.meetings.each do |meeting|%>
+          <h5 > Scheduled: <%= meeting. name %> <br> Date: From <%= meeting.start_time %> until <%= meeting.end_time%> <br> Contact student: <%= meeting.user.email %></h5>
+              <% if meeting.user == current_user %>
+                <%= link_to edit_meeting_path(meeting) do %>
+                  <i class="fas fa-pen-square" style='display:inline;'></i>
                 <% end %>
-              |
-            <% end %>
-
-            <% if @lesson.user == current_user %>
-              <%= link_to meeting_rooms_path(meeting), method: :post, class: 'btn-room' do %>
-                <span class='enter-room'><i class="fas fa-video" style='display:inline;'></i> | Enter Room</span>
+                |
+                  <%= link_to meeting_path(meeting), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash-alt" style='display:inline;'></i>
+                  <% end %>
+                |
               <% end %>
-            <% end %>
 
-        <hr>
-      <% end %>
+              <% if @lesson.user == current_user %>
+                <%= link_to meeting_rooms_path(meeting), method: :post, class: 'btn-room' do %>
+                  <span class='enter-room'><i class="fas fa-video" style='display:inline;'></i> | Enter Room</span>
+                <% end %>
+              <% end %>
+
+          <hr class='mt-5'>
+        <% end %>
+
     </div>
-
-  <div class='pt-1'>
-    <% unless current_user.wishlist_lessons.include?(@lesson)%>
-      <%= simple_form_for [ @lesson, @wishlist_item ] do |f| %>
-        <%= f.submit "Add to wishlist", class: 'btn btn-outline-light mt-3 mb-3' %>
-      <% end%>
-    <% end %>
-  </div>
-  <hr>
-  <div>
-
-
-  </div>
-
-
+      <div class='w-100 justify-content-center'>
+            <% if current_user != @lesson.user %>
+          <%= simple_form_for [ @lesson, @meeting ] do |f| %>
+            <%= f.input :name %>
+            <div class='grid-date'>
+              <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+            </div>
+            <%= f.submit "Create meeting", class: 'btn btn-outline-light mt-3 mb-3' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
     <%  if @meeting.errors.keys.include? (:credits) %>
        <p class="bg-danger text-white p-3">insuficient credits</p>
     <% end %>
-
-  <div class='w-50 justify-content-center'>
-    <%= simple_form_for [ @lesson, @meeting ] do |f| %>
-      <%= f.input :name %>
-      <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.submit "Create meeting", class: 'btn btn-outline-light mt-3 mb-3' %>
-    <% end %>
-  </div>
-
-
 </div>
